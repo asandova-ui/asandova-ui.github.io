@@ -231,11 +231,11 @@ function createParticle(container) {
     }, 7000);
 }
 
-// Dark theme initialization (always dark)
+// Light theme initialization (always light like Raycast)
 function initThemeToggle() {
-    // Set dark theme as default
-    document.body.classList.add('dark-theme');
-    localStorage.setItem('theme', 'dark');
+    // Set light theme as default (Raycast style)
+    document.body.classList.remove('dark-theme');
+    localStorage.setItem('theme', 'light');
 }
 
 // Notification system
@@ -329,58 +329,63 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add CSS for dark theme (always applied)
-const darkThemeCSS = `
-    .dark-theme {
-        --text-primary: #f8fafc;
-        --text-secondary: #cbd5e1;
-        --text-light: #94a3b8;
-        --bg-primary: #0f172a;
-        --bg-secondary: #1e293b;
-        --bg-card: #1e293b;
-        --border-color: #334155;
+// Add CSS for light theme (Raycast style)
+const lightThemeCSS = `
+    body {
+        --text-primary: #1D1D1F;
+        --text-secondary: #86868B;
+        --text-light: #AEAEB2;
+        --bg-primary: #FFFFFF;
+        --bg-secondary: #F5F5F7;
+        --bg-card: #FFFFFF;
+        --border-color: #E5E5E7;
+        --border-light: #F2F2F7;
     }
     
-    .dark-theme .navbar {
-        background: rgba(15, 23, 42, 0.95) !important;
-        border-bottom-color: var(--border-color);
+    .navbar {
+        background: rgba(255, 255, 255, 0.8) !important;
+        border-bottom-color: var(--border-light);
     }
     
-    .dark-theme .nav-link {
+    .nav-link {
+        color: var(--text-secondary);
+    }
+    
+    .nav-link:hover {
         color: var(--text-primary);
     }
     
-    .dark-theme .about-card,
-    .dark-theme .skill-category,
-    .dark-theme .project-card,
-    .dark-theme .timeline-content,
-    .dark-theme .contact-card,
-    .dark-theme .contact-form {
+    .about-card,
+    .skill-category,
+    .project-card,
+    .timeline-content,
+    .contact-card,
+    .contact-form {
         background: var(--bg-card);
-        border: 1px solid var(--border-color);
+        border: 1px solid var(--border-light);
     }
     
-    .dark-theme .stat-item {
+    .stat-item {
         background: var(--bg-card);
-        border: 1px solid var(--border-color);
+        border: 1px solid var(--border-light);
     }
     
-    .dark-theme .form-group input,
-    .dark-theme .form-group textarea {
+    .form-group input,
+    .form-group textarea {
         background: var(--bg-primary);
         border-color: var(--border-color);
         color: var(--text-primary);
     }
     
-    .dark-theme .social-link {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
+    .social-link {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-light);
     }
 `;
 
-// Inject dark theme CSS
+// Inject light theme CSS
 const style = document.createElement('style');
-style.textContent = darkThemeCSS;
+style.textContent = lightThemeCSS;
 document.head.appendChild(style);
 
 // Add particle animation CSS
