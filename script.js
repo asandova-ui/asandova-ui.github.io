@@ -231,47 +231,11 @@ function createParticle(container) {
     }, 7000);
 }
 
-// Theme toggle functionality
+// Dark theme initialization (always dark)
 function initThemeToggle() {
-    // Create theme toggle button
-    const themeToggle = document.createElement('button');
-    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    themeToggle.className = 'theme-toggle';
-    themeToggle.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        border: none;
-        border-radius: 50%;
-        background: var(--primary-color);
-        color: white;
-        font-size: 1.2rem;
-        cursor: pointer;
-        z-index: 1000;
-        box-shadow: var(--shadow-lg);
-        transition: all 0.3s ease;
-    `;
-    
-    document.body.appendChild(themeToggle);
-    
-    // Theme toggle functionality
-    themeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark-theme');
-        const isDark = document.body.classList.contains('dark-theme');
-        themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-        
-        // Save theme preference
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-    
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
+    // Set dark theme as default
+    document.body.classList.add('dark-theme');
+    localStorage.setItem('theme', 'dark');
 }
 
 // Notification system
@@ -365,19 +329,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add CSS for dark theme
+// Add CSS for dark theme (always applied)
 const darkThemeCSS = `
     .dark-theme {
-        --text-primary: #f9fafb;
-        --text-secondary: #d1d5db;
-        --text-light: #9ca3af;
-        --bg-primary: #111827;
-        --bg-secondary: #1f2937;
-        --border-color: #374151;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-light: #94a3b8;
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-card: #1e293b;
+        --border-color: #334155;
     }
     
     .dark-theme .navbar {
-        background: rgba(17, 24, 39, 0.95) !important;
+        background: rgba(15, 23, 42, 0.95) !important;
         border-bottom-color: var(--border-color);
     }
     
@@ -391,12 +356,12 @@ const darkThemeCSS = `
     .dark-theme .timeline-content,
     .dark-theme .contact-card,
     .dark-theme .contact-form {
-        background: var(--bg-secondary);
+        background: var(--bg-card);
         border: 1px solid var(--border-color);
     }
     
     .dark-theme .stat-item {
-        background: var(--bg-secondary);
+        background: var(--bg-card);
         border: 1px solid var(--border-color);
     }
     
@@ -408,7 +373,7 @@ const darkThemeCSS = `
     }
     
     .dark-theme .social-link {
-        background: var(--bg-secondary);
+        background: var(--bg-card);
         border: 1px solid var(--border-color);
     }
 `;
