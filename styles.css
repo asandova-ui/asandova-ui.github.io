@@ -38,6 +38,7 @@ body {
     transform-style: preserve-3d;
     animation: rotate3d 8s linear infinite;
     margin: 50px auto;
+    transform-origin: center center;
 }
 
 .face {
