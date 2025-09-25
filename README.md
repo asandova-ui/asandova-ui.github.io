@@ -1,82 +1,80 @@
-# Alonso Sandoval - Portfolio Personal
+# Alonso Sandoval - Portfolio
 
-¡Bienvenido a mi portfolio personal! Este es mi sitio web profesional donde muestro mis proyectos, habilidades y experiencia como desarrollador Full Stack.
+A clean, modern, and black-themed portfolio website showcasing my projects and skills as a Full Stack Developer.
 
-## 🚀 Características
+## ✨ Features
 
-- **Diseño Moderno**: Interfaz limpia y profesional con animaciones suaves
-- **Totalmente Responsivo**: Optimizado para todos los dispositivos
-- **Tema Oscuro/Claro**: Toggle para cambiar entre temas
-- **Animaciones Interactivas**: Efectos visuales atractivos y profesionales
-- **Navegación Suave**: Scroll suave entre secciones
-- **Formulario de Contacto**: Sistema de contacto funcional
-- **Optimizado para SEO**: Meta tags y estructura semántica
+- **Clean Black Design**: Modern dark theme with elegant aesthetics
+- **Fully Responsive**: Optimized for all devices and screen sizes
+- **Smooth Animations**: Beautiful CSS animations and transitions
+- **Interactive Elements**: Hover effects and dynamic interactions
+- **Contact Form**: Functional contact form with validation
+- **Project Showcase**: Clean project cards with hover effects
+- **Skills Section**: Organized technology skills display
+- **Mobile Navigation**: Hamburger menu for mobile devices
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
-- **HTML5**: Estructura semántica y accesible
-- **CSS3**: Diseño moderno con Flexbox y Grid
-- **JavaScript ES6+**: Interactividad y funcionalidades dinámicas
-- **Font Awesome**: Iconografía profesional
-- **Google Fonts**: Tipografía moderna (Inter)
+- **HTML5**: Semantic and accessible structure
+- **CSS3**: Modern styling with Flexbox and Grid
+- **JavaScript ES6+**: Interactive functionality and animations
+- **Font Awesome**: Professional iconography
+- **Google Fonts**: Clean typography (Inter)
 
-## 📱 Secciones Incluidas
+## 📱 Sections
 
-1. **Hero Section**: Presentación principal con efectos visuales
-2. **Sobre Mí**: Información personal y estadísticas
-3. **Habilidades**: Tecnologías y herramientas que domino
-4. **Proyectos**: Portfolio de trabajos destacados
-5. **Experiencia**: Timeline profesional y educación
-6. **Contacto**: Formulario y información de contacto
+1. **Hero**: Introduction with floating animation cards
+2. **About**: Personal story and statistics
+3. **Projects**: Featured project showcase
+4. **Skills**: Technology stack organized by category
+5. **Contact**: Contact form and social links
 
-## 🎨 Características de Diseño
+## 🎨 Design Features
 
-- Gradientes modernos y colores vibrantes
-- Animaciones CSS y JavaScript
-- Efectos de hover y transiciones suaves
-- Partículas flotantes en el hero
-- Barras de progreso animadas
-- Timeline interactivo
-- Cards con efectos 3D
+- Black theme with blue accent colors
+- Floating animation cards in hero section
+- Smooth scroll animations
+- Hover effects on all interactive elements
+- Gradient backgrounds and buttons
+- Clean typography and spacing
+- Particle effects in hero section
 
-## 📧 Contacto
+## 📧 Contact
 
 - **Email**: alonso.sandoval@email.com
 - **GitHub**: [@asandova-ui](https://github.com/asandova-ui)
 - **LinkedIn**: [Alonso Sandoval](https://linkedin.com/in/alonso-sandoval)
 
-## 🌐 GitHub Pages
-
-Este sitio está desplegado en GitHub Pages y se actualiza automáticamente con cada push al repositorio.
+## 🌐 Live Demo
 
 **URL**: https://asandova-ui.github.io
 
-## 📝 Personalización
-
-Para personalizar este portfolio:
-
-1. Edita `index.html` para cambiar el contenido
-2. Modifica `styles.css` para ajustar el diseño
-3. Actualiza `script.js` para nuevas funcionalidades
-4. Reemplaza las imágenes placeholder con tus propias fotos
-
-## 🚀 Instalación Local
+## 🚀 Local Development
 
 ```bash
-# Clona el repositorio
+# Clone the repository
 git clone https://github.com/asandova-ui/asandova-ui.github.io.git
 
-# Navega al directorio
+# Navigate to directory
 cd asandova-ui.github.io
 
-# Abre index.html en tu navegador
+# Open index.html in your browser
 open index.html
 ```
 
-## 📄 Licencia
+## 📝 Customization
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+To customize this portfolio:
+
+1. Edit `index.html` to change content
+2. Modify `styles.css` to adjust styling
+3. Update `script.js` for new functionality
+4. Replace placeholder images with your own
+
+## 📄 License
+
+This project is under the MIT License.
 
 ---
 
-**Desarrollado con ❤️ por Alonso Sandoval**
+**Made with ❤️ and lots of coffee by Alonso Sandoval**

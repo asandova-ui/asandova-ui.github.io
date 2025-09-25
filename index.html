@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alonso Sandoval</title>
-    <meta name="description" content="Desarrollador Full Stack especializado en tecnologías modernas">
+    <title>Alonso Sandoval - Portfolio</title>
+    <meta name="description" content="Full Stack Developer & UI/UX Designer">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -16,29 +17,16 @@
                 <span class="logo-text">AS</span>
             </div>
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">Sobre Mí</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Habilidades</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Proyectos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experiencia</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contacto</a>
-                </li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
@@ -49,32 +37,35 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        Hola, soy <span class="highlight">Alonso Sandoval</span>
+                        <span class="greeting">Hello, I'm</span>
+                        <span class="name">Alonso Sandoval</span>
                     </h1>
-                    <p class="hero-subtitle">Desarrollador Full Stack</p>
+                    <p class="hero-subtitle">Full Stack Developer & UI/UX Designer</p>
                     <p class="hero-description">
-                        Creo experiencias digitales excepcionales y soluciones innovadoras 
-                        que marcan la diferencia.
+                        I create beautiful, functional, and user-centered digital experiences.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
-                        <a href="#contact" class="btn btn-secondary">Contactar</a>
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Get In Touch</span>
+                        </a>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <div class="profile-card">
-                        <div class="profile-image">
-                            <img src="https://via.placeholder.com/300x300/4f46e5/ffffff?text=AS" alt="Alonso Sandoval" id="profile-img">
-                        </div>
-                        <div class="profile-info">
-                            <h3>Alonso Sandoval</h3>
-                            <p>Desarrollador</p>
-                            <div class="social-links">
-                                <a href="https://github.com/asandova-ui" target="_blank"><i class="fab fa-github"></i></a>
-                                <a href="https://linkedin.com/in/alonso-sandoval" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                <a href="https://twitter.com/asandova" target="_blank"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="floating-card card-4">
+                        <i class="fas fa-code"></i>
                     </div>
                 </div>
             </div>
@@ -88,52 +79,127 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Sobre Mí</h2>
-                <p class="section-subtitle">Mi trayectoria y pasión por la tecnología</p>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Passionate about creating digital experiences</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <div class="about-card">
-                        <h3>Mi Historia</h3>
+                        <h3>My Story</h3>
                         <p>
-                            Soy un desarrollador full stack con más de 5 años de experiencia creando 
-                            aplicaciones web modernas y escalables. Mi pasión por la tecnología comenzó 
-                            durante mis estudios universitarios, y desde entonces he estado constantemente 
-                            aprendiendo y adaptándome a las últimas tendencias del desarrollo web.
+                            I'm a passionate full-stack developer with a love for creating 
+                            beautiful, functional, and user-centered digital experiences. 
+                            With expertise in modern web technologies, I bring ideas to life 
+                            through clean code and thoughtful design.
                         </p>
                         <p>
-                            Me especializo en JavaScript, React, Node.js y tecnologías cloud, pero siempre 
-                            estoy explorando nuevas herramientas y frameworks que puedan mejorar la experiencia 
-                            del usuario y la eficiencia del desarrollo.
+                            When I'm not coding, you can find me exploring new technologies, 
+                            contributing to open source projects, or sharing knowledge with 
+                            the developer community.
                         </p>
                     </div>
-                    <div class="stats-grid">
-                        <div class="stat-item">
+                    <div class="stats">
+                        <div class="stat">
                             <div class="stat-number">50+</div>
-                            <div class="stat-label">Proyectos Completados</div>
+                            <div class="stat-label">Projects</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">5+</div>
-                            <div class="stat-label">Años de Experiencia</div>
+                        <div class="stat">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Years</div>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat">
                             <div class="stat-number">20+</div>
-                            <div class="stat-label">Tecnologías Dominadas</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Satisfacción del Cliente</div>
+                            <div class="stat-label">Technologies</div>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
                     <div class="image-container">
-                        <img src="https://via.placeholder.com/400x500/6366f1/ffffff?text=Desarrollo" alt="Desarrollo">
-                        <div class="floating-elements">
-                            <div class="floating-element element-1"><i class="fab fa-js"></i></div>
-                            <div class="floating-element element-2"><i class="fab fa-react"></i></div>
-                            <div class="floating-element element-3"><i class="fab fa-node-js"></i></div>
-                            <div class="floating-element element-4"><i class="fab fa-python"></i></div>
+                        <img src="https://via.placeholder.com/400x500/333/fff?text=AS" alt="Alonso Sandoval">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Some of my recent work</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/007AFF/fff?text=E-Commerce+App" alt="E-Commerce App">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack e-commerce solution with React, Node.js, and MongoDB</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/34C759/fff?text=Task+Manager" alt="Task Manager">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>Collaborative task management with real-time updates</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Socket.io</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/FF3B30/fff?text=Weather+Dashboard" alt="Weather Dashboard">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Weather Dashboard</h3>
+                        <p>Interactive weather app with beautiful data visualization</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">API</span>
                         </div>
                     </div>
                 </div>
@@ -145,8 +211,8 @@
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Habilidades</h2>
-                <p class="section-subtitle">Tecnologías y herramientas</p>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">Tools and technologies I work with</p>
             </div>
             <div class="skills-grid">
                 <div class="skill-category">
@@ -155,37 +221,22 @@
                         <div class="skill-item">
                             <i class="fab fa-html5"></i>
                             <span>HTML5</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-css3-alt"></i>
                             <span>CSS3</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-js"></i>
                             <span>JavaScript</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="92%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-react"></i>
                             <span>React</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="88%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-vue"></i>
                             <span>Vue.js</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -195,250 +246,48 @@
                         <div class="skill-item">
                             <i class="fab fa-node-js"></i>
                             <span>Node.js</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-python"></i>
                             <span>Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fas fa-database"></i>
                             <span>MongoDB</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="88%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fas fa-database"></i>
                             <span>PostgreSQL</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="82%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fas fa-server"></i>
-                            <span>Express.js</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="87%"></div>
-                            </div>
+                            <span>Express</span>
                         </div>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Herramientas & Cloud</h3>
+                    <h3>Tools</h3>
                     <div class="skill-items">
                         <div class="skill-item">
                             <i class="fab fa-git-alt"></i>
                             <span>Git</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="92%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-docker"></i>
                             <span>Docker</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="80%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-aws"></i>
                             <span>AWS</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="75%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fab fa-figma"></i>
                             <span>Figma</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%"></div>
-                            </div>
                         </div>
                         <div class="skill-item">
                             <i class="fas fa-mobile-alt"></i>
-                            <span>Responsive Design</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95%"></div>
-                            </div>
+                            <span>Responsive</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Proyectos</h2>
-                <p class="section-subtitle">Trabajos recientes e innovadores</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/8b5cf6/ffffff?text=E-Commerce" alt="E-Commerce Platform">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>E-Commerce Platform</h3>
-                        <p>Plataforma de comercio electrónico completa con React, Node.js y MongoDB. Incluye sistema de pagos, gestión de inventario y panel administrativo.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Stripe</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/06b6d4/ffffff?text=Task+Manager" alt="Task Manager">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Task Manager Pro</h3>
-                        <p>Aplicación de gestión de tareas con funcionalidades avanzadas como colaboración en tiempo real, notificaciones y análisis de productividad.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">Socket.io</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/10b981/ffffff?text=Weather+App" alt="Weather App">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Weather Dashboard</h3>
-                        <p>Dashboard meteorológico interactivo con pronósticos detallados, mapas interactivos y alertas personalizadas para múltiples ubicaciones.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">API Integration</span>
-                            <span class="tech-tag">PWA</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/f59e0b/ffffff?text=Social+Network" alt="Social Network">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Social Network</h3>
-                        <p>Red social moderna con funcionalidades de chat en tiempo real, compartir contenido multimedia y sistema de recomendaciones inteligentes.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">GraphQL</span>
-                            <span class="tech-tag">Redis</span>
-                            <span class="tech-tag">AWS S3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experiencia</h2>
-                <p class="section-subtitle">Trayectoria profesional y académica</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Senior Full Stack Developer</h3>
-                            <span class="timeline-date">2022 - Presente</span>
-                        </div>
-                        <h4>TechCorp Solutions</h4>
-                        <p>Lidero el desarrollo de aplicaciones web escalables y superviso un equipo de 5 desarrolladores. Implementé arquitecturas de microservicios que mejoraron el rendimiento en un 40%.</p>
-                        <ul>
-                            <li>Desarrollo de aplicaciones React y Node.js</li>
-                            <li>Implementación de CI/CD con Docker y AWS</li>
-                            <li>Mentoría de desarrolladores junior</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Full Stack Developer</h3>
-                            <span class="timeline-date">2020 - 2022</span>
-                        </div>
-                        <h4>Digital Innovations</h4>
-                        <p>Desarrollé múltiples proyectos web desde cero, incluyendo plataformas de e-commerce y aplicaciones de gestión empresarial.</p>
-                        <ul>
-                            <li>Desarrollo frontend con React y Vue.js</li>
-                            <li>APIs RESTful con Express y Python</li>
-                            <li>Integración de bases de datos NoSQL y SQL</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Frontend Developer</h3>
-                            <span class="timeline-date">2019 - 2020</span>
-                        </div>
-                        <h4>WebStudio Agency</h4>
-                        <p>Especializado en desarrollo frontend y diseño de interfaces de usuario. Creé más de 20 sitios web responsivos y aplicaciones web.</p>
-                        <ul>
-                            <li>Desarrollo de interfaces con HTML, CSS y JavaScript</li>
-                            <li>Implementación de diseños responsivos</li>
-                            <li>Optimización de rendimiento web</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Ingeniería en Sistemas</h3>
-                            <span class="timeline-date">2015 - 2019</span>
-                        </div>
-                        <h4>Universidad Tecnológica</h4>
-                        <p>Graduado con honores. Especialización en desarrollo de software y arquitectura de sistemas. Proyecto final: Sistema de gestión académica.</p>
-                        <ul>
-                            <li>Fundamentos de programación y algoritmos</li>
-                            <li>Bases de datos y sistemas distribuidos</li>
-                            <li>Desarrollo de software y metodologías ágiles</li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -449,78 +298,73 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Contacto</h2>
-                <p class="section-subtitle">¿Tienes un proyecto en mente?</p>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's work together on your next project</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-card">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <h3>Email</h3>
-                        <p>alonso.sandoval@email.com</p>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>alonso.sandoval@email.com</p>
                         </div>
-                        <h3>Teléfono</h3>
-                        <p>+1 (555) 123-4567</p>
                     </div>
-                    <div class="contact-card">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <h3>Ubicación</h3>
-                        <p>Ciudad, País</p>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Available Worldwide</p>
+                        </div>
                     </div>
-                    <div class="contact-card">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <h3>Disponibilidad</h3>
-                        <p>Lun - Vie, 9:00 - 18:00</p>
+                        <div class="contact-details">
+                            <h3>Availability</h3>
+                            <p>Open to new opportunities</p>
+                        </div>
                     </div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Tu email" required>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Asunto" required>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Tu mensaje" rows="5" required></textarea>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                        <button type="submit" class="btn btn-primary">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
-            <div class="social-section">
-                <h3>Redes sociales</h3>
-                <div class="social-links-large">
-                    <a href="https://github.com/asandova-ui" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://linkedin.com/in/alonso-sandoval" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://twitter.com/asandova" target="_blank" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                        <span>Twitter</span>
-                    </a>
-                    <a href="https://instagram.com/asandova" target="_blank" class="social-link">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                </div>
+            <div class="social-links">
+                <a href="https://github.com/asandova-ui" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/alonso-sandoval" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/asandova" target="_blank" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com/asandova" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -529,15 +373,8 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2024 Alonso Sandoval. Todos los derechos reservados.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#home">Inicio</a>
-                    <a href="#about">Sobre Mí</a>
-                    <a href="#projects">Proyectos</a>
-                    <a href="#contact">Contacto</a>
-                </div>
+                <p>&copy; 2024 Alonso Sandoval. All rights reserved.</p>
+                <p>Made with ❤️ and lots of coffee</p>
             </div>
         </div>
     </footer>

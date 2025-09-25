@@ -3,11 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initNavigation();
     initScrollAnimations();
-    initSkillBars();
     initContactForm();
     initTypingEffect();
     initParticleEffect();
-    initThemeToggle();
+    initScrollToTop();
 });
 
 // Navigation functionality
@@ -51,10 +50,10 @@ function initNavigation() {
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.background = 'rgba(0, 0, 0, 0.9)';
             navbar.style.boxShadow = 'none';
         }
     });
@@ -98,30 +97,10 @@ function initScrollAnimations() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.about-card, .stat-item, .skill-category, .project-card, .timeline-item, .contact-card');
+    const animatedElements = document.querySelectorAll('.about-card, .stat, .skill-category, .project-card, .contact-item');
     animatedElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
-    });
-}
-
-// Skill bars animation
-function initSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-progress');
-    
-    const skillObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const progressBar = entry.target;
-                const width = progressBar.getAttribute('data-width');
-                progressBar.style.width = width;
-                skillObserver.unobserve(progressBar);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    skillBars.forEach(bar => {
-        skillObserver.observe(bar);
     });
 }
 
@@ -134,22 +113,22 @@ function initContactForm() {
         
         const formData = new FormData(contactForm);
         const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
+        const originalText = submitButton.innerHTML;
         
         // Show loading state
-        submitButton.innerHTML = '<span class="loading"></span> Enviando...';
+        submitButton.innerHTML = '<span class="loading"></span> Sending...';
         submitButton.disabled = true;
         
         // Simulate form submission (replace with actual form handling)
         setTimeout(() => {
             // Show success message
-            showNotification('¡Mensaje enviado correctamente! Te contactaré pronto.', 'success');
+            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
             
             // Reset form
             contactForm.reset();
             
             // Reset button
-            submitButton.textContent = originalText;
+            submitButton.innerHTML = originalText;
             submitButton.disabled = false;
         }, 2000);
     });
@@ -157,35 +136,15 @@ function initContactForm() {
 
 // Typing effect for hero title
 function initTypingEffect() {
-    const titleElement = document.querySelector('.hero-title');
-    const originalText = titleElement.innerHTML;
+    const nameElement = document.querySelector('.name');
+    const originalText = nameElement.textContent;
     
-    // Split the text into parts
-    const parts = originalText.split('<span class="highlight">');
-    const beforeHighlight = parts[0];
-    const highlightAndAfter = parts[1].split('</span>');
-    const highlightText = highlightAndAfter[0];
-    const afterHighlight = highlightAndAfter[1];
-    
-    let currentText = '';
+    nameElement.textContent = '';
     let currentIndex = 0;
-    const fullText = beforeHighlight + highlightText + afterHighlight;
     
     function typeText() {
-        if (currentIndex < fullText.length) {
-            currentText += fullText[currentIndex];
-            
-            // Reconstruct the HTML with the typed portion
-            if (currentIndex < beforeHighlight.length) {
-                titleElement.innerHTML = currentText + '<span class="highlight">' + highlightText + '</span>' + afterHighlight;
-            } else if (currentIndex < beforeHighlight.length + highlightText.length) {
-                const typedHighlight = highlightText.substring(0, currentIndex - beforeHighlight.length);
-                titleElement.innerHTML = beforeHighlight + '<span class="highlight">' + typedHighlight + '</span>' + afterHighlight;
-            } else {
-                const typedAfter = afterHighlight.substring(0, currentIndex - beforeHighlight.length - highlightText.length);
-                titleElement.innerHTML = beforeHighlight + '<span class="highlight">' + highlightText + '</span>' + typedAfter;
-            }
-            
+        if (currentIndex < originalText.length) {
+            nameElement.textContent += originalText[currentIndex];
             currentIndex++;
             setTimeout(typeText, 100);
         }
@@ -198,7 +157,7 @@ function initTypingEffect() {
 // Particle effect for hero section
 function initParticleEffect() {
     const hero = document.querySelector('.hero');
-    const particleCount = 50;
+    const particleCount = 30;
     
     for (let i = 0; i < particleCount; i++) {
         createParticle(hero);
@@ -212,7 +171,7 @@ function createParticle(container) {
         position: absolute;
         width: 2px;
         height: 2px;
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(0, 122, 255, 0.5);
         border-radius: 50%;
         pointer-events: none;
         left: ${Math.random() * 100}%;
@@ -231,13 +190,6 @@ function createParticle(container) {
     }, 7000);
 }
 
-// Light theme initialization (always light like Raycast)
-function initThemeToggle() {
-    // Set light theme as default (Raycast style)
-    document.body.classList.remove('dark-theme');
-    localStorage.setItem('theme', 'light');
-}
-
 // Notification system
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
@@ -248,13 +200,14 @@ function showNotification(message, type = 'info') {
         top: 20px;
         right: 20px;
         padding: 1rem 2rem;
-        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
+        background: ${type === 'success' ? '#34C759' : type === 'error' ? '#FF3B30' : '#007AFF'};
         color: white;
-        border-radius: 10px;
-        box-shadow: var(--shadow-lg);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         z-index: 10000;
         transform: translateX(100%);
         transition: transform 0.3s ease;
+        font-weight: 500;
     `;
     
     document.body.appendChild(notification);
@@ -323,70 +276,60 @@ const statsObserver = new IntersectionObserver(function(entries) {
 }, { threshold: 0.5 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const statsSection = document.querySelector('.stats-grid');
+    const statsSection = document.querySelector('.stats');
     if (statsSection) {
         statsObserver.observe(statsSection);
     }
 });
 
-// Add CSS for light theme (Raycast style)
-const lightThemeCSS = `
-    body {
-        --text-primary: #1D1D1F;
-        --text-secondary: #86868B;
-        --text-light: #AEAEB2;
-        --bg-primary: #FFFFFF;
-        --bg-secondary: #F5F5F7;
-        --bg-card: #FFFFFF;
-        --border-color: #E5E5E7;
-        --border-light: #F2F2F7;
-    }
+// Add scroll to top button
+function initScrollToTop() {
+    const scrollButton = document.createElement('button');
+    scrollButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    scrollButton.className = 'scroll-to-top';
+    scrollButton.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+    `;
     
-    .navbar {
-        background: rgba(255, 255, 255, 0.8) !important;
-        border-bottom-color: var(--border-light);
-    }
+    document.body.appendChild(scrollButton);
     
-    .nav-link {
-        color: var(--text-secondary);
-    }
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            scrollButton.style.opacity = '1';
+            scrollButton.style.visibility = 'visible';
+            scrollButton.style.transform = 'translateY(0)';
+        } else {
+            scrollButton.style.opacity = '0';
+            scrollButton.style.visibility = 'hidden';
+            scrollButton.style.transform = 'translateY(20px)';
+        }
+    });
     
-    .nav-link:hover {
-        color: var(--text-primary);
-    }
-    
-    .about-card,
-    .skill-category,
-    .project-card,
-    .timeline-content,
-    .contact-card,
-    .contact-form {
-        background: var(--bg-card);
-        border: 1px solid var(--border-light);
-    }
-    
-    .stat-item {
-        background: var(--bg-card);
-        border: 1px solid var(--border-light);
-    }
-    
-    .form-group input,
-    .form-group textarea {
-        background: var(--bg-primary);
-        border-color: var(--border-color);
-        color: var(--text-primary);
-    }
-    
-    .social-link {
-        background: var(--bg-secondary);
-        border: 1px solid var(--border-light);
-    }
-`;
-
-// Inject light theme CSS
-const style = document.createElement('style');
-style.textContent = lightThemeCSS;
-document.head.appendChild(style);
+    // Scroll to top functionality
+    scrollButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
 // Add particle animation CSS
 const particleCSS = `
@@ -431,54 +374,44 @@ function initLazyLoading() {
 // Initialize lazy loading
 document.addEventListener('DOMContentLoaded', initLazyLoading);
 
-// Add scroll to top button
-function initScrollToTop() {
-    const scrollButton = document.createElement('button');
-    scrollButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    scrollButton.className = 'scroll-to-top';
-    scrollButton.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        border: none;
-        border-radius: 50%;
-        background: var(--primary-color);
-        color: white;
-        font-size: 1.2rem;
-        cursor: pointer;
-        z-index: 1000;
-        box-shadow: var(--shadow-lg);
-        transition: all 0.3s ease;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(20px);
-    `;
+// Add smooth scrolling to all anchor links
+document.addEventListener('DOMContentLoaded', function() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
     
-    document.body.appendChild(scrollButton);
-    
-    // Show/hide button based on scroll position
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            scrollButton.style.opacity = '1';
-            scrollButton.style.visibility = 'visible';
-            scrollButton.style.transform = 'translateY(0)';
-        } else {
-            scrollButton.style.opacity = '0';
-            scrollButton.style.visibility = 'hidden';
-            scrollButton.style.transform = 'translateY(20px)';
-        }
-    });
-    
-    // Scroll to top functionality
-    scrollButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 70;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
-}
+});
 
-// Initialize scroll to top button
-document.addEventListener('DOMContentLoaded', initScrollToTop);
+// Add loading animation
+window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+});
+
+// Add CSS for loading state
+const loadingCSS = `
+    body {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    body.loaded {
+        opacity: 1;
+    }
+`;
+
+const loadingStyle = document.createElement('style');
+loadingStyle.textContent = loadingCSS;
+document.head.appendChild(loadingStyle);
