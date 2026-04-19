@@ -1,0 +1,124 @@
+---
+title: "TP2 Connected Vehicle IoT & Edge AI Lab"
+subtitle: "LTE-connected IoT platform for real-time vehicle control, edge inference, and AI-ready data workflows."
+pitch: "A real four-machine connected mobility lab that combines LTE networking, distributed control, perception modules, Jetson-ready inference offload, and disciplined runtime validation under real hardware constraints."
+description: "Internal engineering case study at the intersection of IoT, edge AI, computer vision, and connected mobility systems."
+cardStatusLabel: "Live"
+cardStatusTone: "live"
+featured: true
+year: "2026"
+role: "Systems integration, LTE infrastructure, control-path design, inference workflow integration, and live validation."
+outcome: "Validated a real EPC/eNodeB/car/Jetson testbed with live LTE attach, UDP command exchange, EPC-centric control, and a clear path toward edge inference offload and AI-ready data workflows."
+stack:
+  - LTE / srsRAN
+  - IoT systems
+  - Python
+  - UDP control
+  - OpenCV
+  - LIDAR
+  - Jetson Orin Nano
+  - Roboflow inference
+  - Gradio
+tags:
+  - IoT
+  - edge AI
+  - connected systems
+  - computer vision
+  - intelligent mobility
+  - data capture
+  - annotation workflows
+  - infrastructure deployment
+links:
+  - label: "Repository"
+    href: "https://github.com/TallerProyectos2/TP2_red4G"
+order: 2
+---
+
+## One-line pitch
+
+An LTE-connected IoT and edge AI testbed for real-time vehicle control, perception workflows, and structured data capture on real infrastructure.
+
+## Portfolio summary
+
+TP2 is not presented here as a product or a robotics demo. It is an internal engineering platform: a connected-vehicle lab built to validate how radio access, compute, perception, control, and data workflows behave when they run across real machines instead of inside a simulation-only environment.
+
+## Case-study summary
+
+The platform runs as a four-machine lab composed of an EPC host, an eNodeB, a connected vehicle, and a Jetson node prepared for inference offload. The currently validated path is EPC-centric and deliberately script-first: the car attaches over LTE, sends UDP payloads carrying image, LIDAR, battery, and runtime data to the EPC, the EPC computes control decisions, and the EPC returns steering and throttle commands back to the vehicle over UDP.
+
+What makes the project strong is not just the individual components, but the integration discipline across them. LTE connectivity, machine roles, inference runtime compatibility, operator controls, and deployment sequencing are documented through runbooks, machine inventory, and validation logs from live infrastructure. On top of that systems backbone, the lab supports perception-oriented workflows with local or cloud Roboflow inference, image processing, annotated outputs, and a web UI for batch inspection. That makes it a credible base not only for connected control experiments, but also for data collection, labeling, evaluation, and future model iteration.
+
+## System layout
+
+```text
+Car (UE) -> LTE attach -> eNodeB -> EPC
+   |                          |
+   | image / LIDAR / battery  | control scripts + LTE core + local inference
+   | UDP payloads             | compute steering / throttle
+   |                          |
+   +------ receives UDP control commands <------+
+
+Jetson Orin Nano
+   |
+   +-- prepared as inference-only offload node
+       reachable from EPC, while EPC remains the orchestration hub
+```
+
+## Key features
+
+- Real four-machine lab with EPC, eNodeB, car, and Jetson roles clearly separated.
+- LTE-based vehicle connectivity with validated UE attach and EPC-managed addressing.
+- Script-first control runtime using live UDP payload exchange between car and EPC.
+- Perception modules combining image handling, LIDAR-aware logic, and runtime inference tooling.
+- Jetson integration prepared as inference-only offload without breaking the current EPC path.
+- Operator control modes through keyboard and PS4, useful for safe testing and human-in-the-loop operation.
+- Batch and runtime inspection tooling through Roboflow-compatible local/cloud inference flows and Gradio UI.
+- Runbook-driven startup, validation, troubleshooting, and shutdown discipline on real infrastructure.
+
+## Technical stack
+
+- srsRAN components for EPC and eNodeB responsibilities
+- LTE backhaul and UE networking
+- Python runtime scripts for control, orchestration, and inference integration
+- UDP-based telemetry and command exchange
+- OpenCV and classical perception/control logic
+- LIDAR-assisted vehicle state interpretation
+- Jetson Orin Nano as planned edge inference target
+- Roboflow local/cloud inference tooling
+- Gradio web interface for inspection and inference workflows
+
+## Architecture highlights
+
+- EPC remains the control and orchestration hub, hosting LTE core responsibilities, control scripts, and the active inference path.
+- eNodeB remains radio-only, preserving clear network-layer boundaries.
+- The car behaves as an LTE-connected endpoint that sends sensor payloads and executes returned commands rather than owning global policy.
+- Jetson is positioned carefully as an inference-only node, which keeps the architecture modular and avoids unnecessary rewrites of the validated control path.
+- The inference contract is compatibility-driven: new offload paths must preserve the existing client behavior and allow fallback to EPC-local inference.
+
+## AI / Data / IoT angle
+
+This project is especially relevant as an IoT and edge AI case study because it creates a practical bridge between connected infrastructure and AI-ready data workflows:
+
+- The vehicle generates structured operational payloads from real runs rather than synthetic-only traces.
+- Image and sensor streams are well suited for dataset capture, annotation, and perception-model evaluation.
+- The inference layer already supports local and cloud execution patterns, which is useful for comparing latency, reliability, and deployment tradeoffs.
+- The system is a natural base for future multimodal AI experimentation, including richer perception pipelines and language-assisted control tooling, without claiming that such autonomy stack is already complete.
+- In portfolio terms, it demonstrates how IoT infrastructure, perception runtime design, and data-centric AI thinking can be integrated into one operational lab.
+
+## Engineering challenges
+
+- Maintaining reliable LTE connectivity while also validating application-layer control behavior.
+- Coordinating four machines with different responsibilities and keeping the runtime operationally understandable.
+- Preserving a working EPC-centric control path while preparing Jetson offload as the next phase.
+- Handling real networking constraints and troubleshooting them in the correct order instead of mixing radio, control, and inference changes at once.
+- Building perception workflows that are useful for future labeling and evaluation without overstating current platform maturity.
+
+## Why it matters
+
+The strongest signal from this project is operational realism. It is real hardware, real networking, real control traffic, and real deployment sequencing. That makes it a credible engineering case study in connected systems rather than a slide-deck concept.
+
+At the same time, the platform is data-centric in the right way. It is well suited for capturing and structuring data from real vehicle runs, generating annotated outputs, supporting human-in-the-loop review, and preparing future fine-tuning or evaluation workflows for perception and language-assisted control systems.
+
+## Current maturity
+
+Validated lab prototype and demo system. Not a production autonomy platform, not a commercial SaaS product, and not presented here as a finished edge AI deployment.

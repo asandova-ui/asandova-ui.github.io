@@ -24,26 +24,35 @@ export type SkillGroupData = {
 export const siteConfig = {
   name: "Alonso Sandoval",
   shortName: "Alonso",
-  role: "Telecommunications & AI Engineer",
+  role: "Electrical & AI Engineer",
   location: "Madrid, Spain",
-  availability: "Open to senior engineering, architecture, and applied AI opportunities.",
+  availability: "Open to strategic conversations around AI products, AI data platforms, and technical leadership.",
   description:
-    "Personal portfolio for Alonso Sandoval, a telecommunications and AI engineer focused on resilient systems, data platforms, and technically credible product execution.",
+    "Portfolio of Alonso Sandoval, an electrical and AI engineer. Co-Founder and CTO at Caudals, building systems for data, AI, and connected products.",
   headline:
-    "Carrier-grade systems thinking for AI products, network intelligence, and high-trust engineering.",
+    "Reliable systems for AI, data, and connected products.",
   intro:
-    "I work at the intersection of telecommunications, software platforms, and applied AI. My focus is turning complex infrastructure, telemetry, and operational workflows into products that are reliable, understandable, and useful to technical teams.",
+    "I work across product architecture, backend systems, and data operations, with a focus on turning complex workflows into dependable products.",
   about:
-    "This site is designed as a structured portfolio rather than a personal blog template. The content emphasizes system design, delivery rigor, and measurable technical impact. Replace the marked placeholders with your actual roles, metrics, and links.",
+    "I build technical products for data-heavy and model-driven workflows, where architecture, data quality, and operational reliability all matter. My work spans backend systems, dataset operations, connected infrastructure, and the tooling required to ship them well.",
+  venture: {
+    name: "Caudals",
+    role: "Co-Founder & CTO",
+    href: "https://caudals.com",
+    category: "AI data startup",
+    summary:
+      "Focused on structured dataset operations, marketplace workflows, and internal tooling for data delivery.",
+    scope: "Marketplace design, data operations, and product infrastructure."
+  },
   currentFocus: [
-    "AI-assisted operations and decision support for network and infrastructure teams.",
-    "Private 5G, edge, and telemetry-heavy platforms with product-grade interfaces.",
-    "End-to-end engineering across architecture, backend systems, data pipelines, and delivery."
+    "Data-intensive products and internal platforms.",
+    "Dataset operations, quality controls, and delivery pipelines.",
+    "Connected systems, perception tooling, and edge infrastructure."
   ],
   strengths: [
-    "Telecommunications engineering grounded in reliability, signal flow, and operational constraints.",
-    "Applied AI engineering with emphasis on auditability, deployment discipline, and real-world usability.",
-    "Cross-functional execution that connects technical architecture with product outcomes."
+    "Systems thinking across software, data, and hardware-aware environments.",
+    "Clear architecture, disciplined execution, and strong operational judgment.",
+    "Technical leadership that connects product direction with implementation."
   ],
   socialLinks: [
     {
@@ -80,38 +89,38 @@ export const siteConfig = {
 
 export const experience: ExperienceItemData[] = [
   {
-    role: "[Placeholder] Senior Telecommunications & AI Engineer",
-    company: "[Placeholder Company / Operator / Consultancy]",
-    period: "2024 - Present",
+    role: "Cofounder & CTO",
+    company: "Caudals",
+    period: "Present",
     summary:
-      "Leading architecture and delivery across network intelligence, AI-enabled tooling, and product-facing data workflows.",
+      "Building an AI startup that helps businesses monetize proprietary data and helps AI teams buy clean, compliant, ML-ready datasets.",
     bullets: [
-      "Designed platform components that connect operational telemetry with decision support and internal tooling.",
-      "Translated infrastructure constraints into product architecture, delivery plans, and measurable engineering outcomes.",
-      "Replace this entry with actual scope, team size, and impact metrics."
+      "Own the technical roadmap across supplier onboarding, rights review, dataset operations, quality assurance, and buyer delivery.",
+      "Design the workflows that turn raw files, exports, or feeds into AI-ready datasets through cleaning, anonymization, labeling, packaging, and QA.",
+      "Lead the platform direction for the marketplace, private offers, and internal tooling that sits between data suppliers and AI teams."
     ]
   },
   {
-    role: "[Placeholder] AI Solutions Engineer",
+    role: "[Placeholder] Senior AI Engineer / Platform Engineer",
     company: "[Placeholder Company]",
     period: "2021 - 2024",
     summary:
-      "Built production-oriented data and AI systems for real operational environments, with emphasis on reliability and adoption.",
+      "Built production-oriented AI systems, backend platforms, and data workflows for real operational environments.",
     bullets: [
-      "Developed backend and data flows that made infrastructure signals usable for operators and business stakeholders.",
-      "Partnered with domain experts to turn research prototypes into repeatable product capabilities.",
-      "Replace this with concrete models, latency, cost, or adoption metrics."
+      "Developed backend services and data pipelines that made AI workflows usable for operators and business stakeholders.",
+      "Partnered with domain experts to turn prototypes into repeatable AI product capabilities.",
+      "Replace this with concrete models, latency, adoption, revenue, or efficiency metrics."
     ]
   },
   {
-    role: "[Placeholder] Telecommunications Engineer",
-    company: "[Placeholder Lab / Integrator / Operator]",
+    role: "[Placeholder] Electrical / Systems Engineer",
+    company: "[Placeholder Lab / Integrator / Product Team]",
     period: "2018 - 2021",
     summary:
-      "Worked on network performance, systems integration, and technical delivery in environments where operational rigor mattered.",
+      "Worked on systems engineering, technical analysis, and delivery in environments where rigor and reliability mattered.",
     bullets: [
-      "Owned technical analysis and implementation across infrastructure, monitoring, and service-level constraints.",
-      "Built the engineering foundation that later expanded into data platforms and applied AI work.",
+      "Owned technical analysis and implementation across infrastructure, monitoring, and performance-sensitive systems.",
+      "Built the engineering foundation that later expanded into AI platforms, data products, and applied AI work.",
       "Replace this with specific technologies, programs, and scale."
     ]
   }
@@ -119,24 +128,24 @@ export const experience: ExperienceItemData[] = [
 
 export const skillGroups: SkillGroupData[] = [
   {
-    title: "Telecommunications",
-    description: "Systems thinking across signal, transport, observability, and operational workflows.",
-    items: ["5G / LTE", "Private networks", "Telemetry", "Network operations", "Protocol analysis", "Edge systems"]
+    title: "AI Systems",
+    description: "Applied AI product work across models, evaluation, retrieval, and operator-facing workflows.",
+    items: ["LLM workflows", "RAG systems", "AI copilots", "Evaluation", "Prompt systems", "Experimentation"]
   },
   {
-    title: "AI & Data",
-    description: "Applied AI with engineering discipline rather than demo-first delivery.",
-    items: ["Python", "LLM workflows", "MLOps foundations", "Feature engineering", "Vector retrieval", "Experimentation"]
+    title: "Data & ML Operations",
+    description: "Turning raw data into clean, compliant, ML-ready assets for AI teams.",
+    items: ["Data pipelines", "Schema design", "Anonymization", "Dataset QA", "Labeling ops", "Dataset packaging"]
   },
   {
     title: "Backend & Platform",
-    description: "Service architecture and product infrastructure built for maintainability and clarity.",
-    items: ["TypeScript", "Node.js", "APIs", "PostgreSQL", "Event-driven systems", "System design"]
+    description: "Service architecture and product infrastructure for AI products and operational systems.",
+    items: ["TypeScript", "Node.js", "APIs", "PostgreSQL", "Workflow design", "System design"]
   },
   {
-    title: "Infra & Tooling",
-    description: "Toolchains that support deployment confidence, observability, and fast iteration.",
-    items: ["Docker", "GitHub Actions", "CI/CD", "Linux", "Cloud services", "Monitoring"]
+    title: "Electrical & Systems",
+    description: "Analytical rigor from electrical and systems engineering applied to product and AI architecture.",
+    items: ["Systems modeling", "Signal analysis", "Automation", "Edge environments", "Technical analysis", "Operational rigor"]
   }
 ];
 

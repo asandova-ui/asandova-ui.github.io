@@ -1,0 +1,90 @@
+---
+title: "AI-Native Labeling & Dataset Evaluation System"
+subtitle: "Anthropic Opus 4.7 Hackathon 2026 build focused on automated labeling, confidence-based routing, and training-ready dataset quality."
+pitch: "A frontier data-operations system designed to compress one of the deepest bottlenecks in modern AI: turning raw data into cleaner, higher-confidence datasets through automated labeling, selective human review, and dataset-level evaluation."
+description: "Currently building an AI-native system for automated labeling, confidence-based review, and dataset evaluation as part of the Anthropic Opus 4.7 Hackathon 2026."
+cardStatusLabel: "Live"
+cardStatusTone: "live"
+detailStatusLabel: "Currently Building"
+detailStatusTone: "building"
+detailStatusNote: "In active development for the Anthropic Opus 4.7 Hackathon 2026 as an internal acceleration layer for Caudals, with clear potential to evolve into a broader platform surface."
+featured: true
+year: "2026"
+role: "System design, workflow architecture, evaluation logic, and product direction for AI data operations."
+outcome: "Compresses labeling, review, and dataset evaluation into one operational layer designed to produce cleaner training-ready datasets faster."
+stack:
+  - AI Systems
+  - LLM workflows
+  - Next.js
+  - React
+  - TypeScript
+  - Supabase
+  - PostgreSQL
+  - Docker
+  - DigitalOcean
+  - S3-compatible storage
+  - Human-in-the-loop systems
+  - Data infrastructure
+tags:
+  - automated labeling
+  - confidence scoring
+  - human review
+  - dataset evaluation
+  - fine-tuning pipelines
+  - AI data operations
+  - quality assurance
+links: []
+order: 1
+---
+
+## Overview
+
+This project is being built during the Anthropic Opus 4.7 Hackathon 2026 and is aimed at a core constraint in modern AI: the gap between raw data and training-ready datasets.
+
+Rather than treating labeling, review, QA, and export as separate manual steps, the system is designed as one operational layer. Automation handles the bulk of repetitive labeling work, confidence scoring routes uncertain cases intelligently, and human review is reserved for edge cases where judgment matters.
+
+## Why this matters
+
+Model progress does not depend only on model architecture. It also depends on how quickly teams can produce data that is well labeled, well validated, and trustworthy enough to use for training, fine-tuning, or evaluation.
+
+Today that workflow is still too fragmented. Labeling tools, QA loops, and review pipelines often live in different places, with too much manual movement between them. This build is an attempt to compress that stack into a more coherent system for data operations.
+
+## System frame
+
+The platform is being conceived first as an internal acceleration layer for Caudals, where high-quality dataset operations are already strategically important. That gives the project a practical operating context from day one: it is designed to solve a real bottleneck, not just to demonstrate an interface.
+
+At the same time, the system has broader product potential. The same workflow layer that improves internal throughput can naturally evolve into a platform capability for teams that need better control over labeling quality, review economics, and export readiness.
+
+## Workflow model
+
+```text
+Raw data intake
+  -> automated labeling
+  -> confidence scoring
+  -> ambiguity / edge-case detection
+  -> human review only where needed
+  -> dataset evaluation and QA signals
+  -> export-ready dataset packages
+```
+
+The strongest idea in the project is not any single model call. It is the routing logic around quality: automate aggressively where confidence is high, escalate only the samples that need judgment, and generate evaluation signals early enough that dataset quality can be measured before downstream training begins.
+
+## What the system is designed to do
+
+- Automate repetitive labeling work across high-volume data flows.
+- Score confidence and separate straightforward samples from ambiguous ones.
+- Route uncertain or high-risk cases into human-in-the-loop review instead of forcing blanket manual labeling.
+- Generate dataset-level QA and evaluation signals before export.
+- Improve the quality of training-ready outputs for downstream fine-tuning and model iteration.
+
+## Engineering angle
+
+This is best understood as infrastructure for AI data operations, not as another AI application layer.
+
+The technical ambition is in combining workflow orchestration, model-assisted labeling, review economics, quality controls, and export readiness into a single system that can actually support fast iteration. That makes it relevant not only for labeling productivity, but also for data governance, evaluation discipline, and the repeatability of future model improvement cycles.
+
+## Current status
+
+The project is actively being built during the Anthropic Opus 4.7 Hackathon 2026. It should be read as an ambitious in-progress system with strong product implications, not as a finished platform.
+
+What makes it important in portfolio terms is the direction of travel: it sits directly on the interface between automation, human judgment, and training-data quality, which is one of the most leveraged surfaces in frontier AI work today.

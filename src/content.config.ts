@@ -6,12 +6,20 @@ const projects = defineCollection({
   loader: glob({ base: "./src/content/projects", pattern: "**/*.{md,mdx}" }),
   schema: z.object({
     title: z.string(),
+    subtitle: z.string().optional(),
+    pitch: z.string().optional(),
     description: z.string(),
+    cardStatusLabel: z.string().optional(),
+    cardStatusTone: z.enum(["live", "building", "neutral"]).optional(),
+    detailStatusLabel: z.string().optional(),
+    detailStatusTone: z.enum(["live", "building", "neutral"]).optional(),
+    detailStatusNote: z.string().optional(),
     featured: z.boolean().default(false),
     year: z.string(),
     role: z.string(),
     outcome: z.string(),
     stack: z.array(z.string()),
+    tags: z.array(z.string()).default([]),
     links: z
       .array(
         z.object({

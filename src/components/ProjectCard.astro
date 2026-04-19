@@ -10,6 +10,18 @@ interface Props {
 
 const { entry, featured = false } = Astro.props;
 const { data, id } = entry;
+const statusToneClasses =
+  data.cardStatusTone === "live"
+    ? "border-emerald-200 bg-emerald-50/90 text-emerald-700"
+    : data.cardStatusTone === "building"
+      ? "border-[color:var(--color-accent)]/25 bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent-strong)]"
+      : "border-[color:var(--color-border)] bg-white/70 text-[color:var(--color-muted)]";
+const statusDotClasses =
+  data.cardStatusTone === "live"
+    ? "bg-emerald-500"
+    : data.cardStatusTone === "building"
+      ? "bg-[color:var(--color-accent)]"
+      : "bg-[color:var(--color-muted)]/55";
 ---
 
 <article
@@ -22,7 +34,18 @@ const { data, id } = entry;
     <div class="space-y-4">
       <div class="flex flex-wrap items-center justify-between gap-3">
         <span class="eyebrow">{featured ? "Featured project" : data.year}</span>
-        {!featured && <span class="text-sm text-[color:var(--color-muted)]">{data.year}</span>}
+        <div class="flex items-center gap-3">
+          {data.cardStatusLabel && (
+            <span class:list={[
+              "inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold tracking-[0.12em] uppercase",
+              statusToneClasses
+            ]}>
+              <span aria-hidden="true" class:list={["size-2 rounded-full", statusDotClasses]}></span>
+              {data.cardStatusLabel}
+            </span>
+          )}
+          {!featured && <span class="text-sm text-[color:var(--color-muted)]">{data.year}</span>}
+        </div>
       </div>
       <div class="space-y-3">
         <h3 class="text-2xl leading-tight font-semibold sm:text-[1.9rem]">
@@ -30,6 +53,11 @@ const { data, id } = entry;
             {data.title}
           </a>
         </h3>
+        {data.subtitle && (
+          <p class="font-heading text-sm font-medium tracking-[0.01em] text-[color:var(--color-fg)]/82">
+            {data.subtitle}
+          </p>
+        )}
         <p class="text-base leading-8">{data.description}</p>
       </div>
     </div>
@@ -55,10 +83,10 @@ const { data, id } = entry;
       </ul>
     </div>
 
-    <div class="mt-auto flex flex-wrap items-center gap-4 border-t pt-5">
+    <div class="mt-auto flex flex-wrap items-center gap-3 border-t pt-5">
       <a
         href={withBase(`/projects/${id}/`)}
-        class="text-sm font-semibold text-[color:var(--color-fg)] hover:text-[color:var(--color-accent-strong)]"
+        class="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-white/70 px-4 py-2.5 text-sm font-semibold text-[color:var(--color-fg)] hover:-translate-y-0.5 hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent-strong)]"
       >
         Read case study
       </a>
@@ -68,7 +96,7 @@ const { data, id } = entry;
             href={link.href}
             target="_blank"
             rel="noreferrer"
-            class="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-muted)] hover:text-[color:var(--color-accent-strong)]"
+            class="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-white/70 px-4 py-2.5 text-sm font-semibold text-[color:var(--color-fg)] hover:-translate-y-0.5 hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent-strong)]"
           >
             {link.label}
             <ExternalLink class="size-3.5" aria-hidden="true" />
