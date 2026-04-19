@@ -1,0 +1,20 @@
+---
+interface Props {
+  class?: string;
+  narrow?: boolean;
+  id?: string;
+}
+
+const { class: className = "", narrow = false, id } = Astro.props as Props;
+---
+
+<div
+  id={id}
+  class:list={[
+    "mx-auto w-full px-6 sm:px-8",
+    narrow ? "max-w-3xl" : "max-w-6xl",
+    className
+  ]}
+>
+  <slot />
+</div>

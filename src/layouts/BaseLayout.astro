@@ -1,0 +1,106 @@
+---
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { siteConfig } from "@/lib/site";
+import { withBase } from "@/lib/utils";
+import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const {
+  title,
+  description = siteConfig.description,
+  image = "/og-default.svg",
+  type = "website",
+  structuredData
+} = Astro.props;
+
+const pageTitle = title ? `${title} | ${siteConfig.name}` : `${siteConfig.name} | ${siteConfig.role}`;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.toString();
+const resolvedImage = image.startsWith("/") ? withBase(image) : image;
+const imageUrl = Astro.site ? new URL(resolvedImage, Astro.site).toString() : resolvedImage;
+const sameAs = siteConfig.socialLinks
+  .map((link) => link.href)
+  .filter((href) => href.startsWith("http://") || href.startsWith("https://"));
+
+const baseStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.name,
+    jobTitle: siteConfig.role,
+    description: siteConfig.description,
+    url: Astro.site?.toString() ?? canonical,
+    email: siteConfig.socialLinks.find((link) => link.label === "Email")?.href.replace("mailto:", ""),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: siteConfig.location
+    },
+    sameAs
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: `${siteConfig.name} Portfolio`,
+    url: Astro.site?.toString() ?? canonical,
+    description: siteConfig.description
+  }
+];
+
+const extraStructuredData = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
+
+const jsonLd = JSON.stringify([...baseStructuredData, ...extraStructuredData]);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="manifest" href={withBase("/site.webmanifest")} />
+    <meta name="theme-color" content="#faf9f5" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:site_name" content={`${siteConfig.name} Portfolio`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
+  </head>
+  <body class="overflow-x-hidden">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-[color:var(--color-fg)] focus:px-4 focus:py-2 focus:font-heading focus:text-sm focus:text-[color:var(--color-bg)]"
+    >
+      Skip to content
+    </a>
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute inset-x-0 top-0 h-[28rem] bg-[radial-gradient(circle_at_top,rgba(217,119,87,0.14),transparent_58%)]"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(232,230,220,0.5)_1px,transparent_1px),linear-gradient(to_bottom,rgba(232,230,220,0.4)_1px,transparent_1px)] bg-[size:54px_54px] opacity-35"></div>
+    </div>
+    <Header />
+    <main id="main-content" class="pb-20">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

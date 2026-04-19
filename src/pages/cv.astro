@@ -1,0 +1,79 @@
+---
+import Container from "@/components/Container.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import SocialLinks from "@/components/SocialLinks.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { experience, siteConfig, skillGroups } from "@/lib/site";
+---
+
+<BaseLayout title="CV" description="Curriculum-style overview of experience, strengths, and contact details.">
+  <section class="py-16 sm:py-24">
+    <Container narrow class="space-y-12">
+      <div class="space-y-5">
+        <span class="eyebrow">Curriculum Vitae</span>
+        <h1 class="text-4xl leading-tight font-semibold sm:text-5xl">{siteConfig.name}</h1>
+        <p class="text-lg font-medium text-[color:var(--color-fg)]">{siteConfig.role}</p>
+        <p class="section-copy">{siteConfig.intro}</p>
+        <SocialLinks links={siteConfig.socialLinks} />
+      </div>
+
+      <section class="space-y-6">
+        <SectionHeading
+          eyebrow="Profile"
+          title="Professional summary"
+          description="Use this page as a lightweight web CV and replace the placeholders with exact responsibilities, industries, and measurable outcomes."
+        />
+        <p class="section-copy max-w-none">{siteConfig.about}</p>
+      </section>
+
+      <section class="space-y-6">
+        <SectionHeading eyebrow="Experience" title="Career timeline" />
+        <div class="space-y-6">
+          {
+            experience.map((item) => (
+              <article class="surface-card p-6 sm:p-7">
+                <div class="flex flex-col gap-3 border-b pb-5 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p class="text-sm font-semibold tracking-[0.18em] uppercase text-[color:var(--color-accent-strong)]">
+                      {item.company}
+                    </p>
+                    <h2 class="mt-2 text-2xl leading-tight font-semibold">{item.role}</h2>
+                  </div>
+                  <p class="text-sm font-medium text-[color:var(--color-muted)]">{item.period}</p>
+                </div>
+                <p class="mt-5 text-base leading-8">{item.summary}</p>
+                <ul class="mt-5 space-y-3">
+                  {
+                    item.bullets.map((bullet) => (
+                      <li class="flex gap-3 text-sm leading-7 sm:text-base">
+                        <span aria-hidden="true" class="mt-3 size-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]"></span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <SectionHeading eyebrow="Skills" title="Capability areas" />
+        <div class="grid gap-6 md:grid-cols-2">
+          {
+            skillGroups.map((group) => (
+              <article class="surface-card p-6">
+                <h2 class="text-xl font-semibold">{group.title}</h2>
+                <p class="mt-3 text-sm leading-7">{group.description}</p>
+                <ul class="mt-5 flex flex-wrap gap-2">
+                  {group.items.map((item) => <li class="chip">{item}</li>)}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+    </Container>
+  </section>
+</BaseLayout>

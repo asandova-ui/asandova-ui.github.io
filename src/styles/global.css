@@ -1,0 +1,126 @@
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/lora/400.css";
+@import "@fontsource/lora/500.css";
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-heading: "Poppins", Arial, sans-serif;
+  --font-body: "Lora", Georgia, serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --color-bg: #faf9f5;
+    --color-surface: rgba(255, 255, 255, 0.76);
+    --color-surface-strong: #f3f0e6;
+    --color-fg: #141413;
+    --color-muted: #6f6b62;
+    --color-border: #e8e6dc;
+    --color-accent: #d97757;
+    --color-accent-strong: #be6247;
+    --shadow-soft: 0 18px 48px rgba(20, 20, 19, 0.06);
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at top left, rgba(217, 119, 87, 0.08), transparent 34%),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.82), rgba(250, 249, 245, 0.98));
+    color: var(--color-fg);
+    font-family: var(--font-body);
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(217, 119, 87, 0.18);
+    color: var(--color-fg);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.04em;
+    color: var(--color-fg);
+  }
+
+  p,
+  li {
+    color: var(--color-muted);
+  }
+
+  a {
+    transition:
+      color 180ms ease,
+      border-color 180ms ease,
+      background-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  main {
+    position: relative;
+    isolation: isolate;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply rounded-[28px] border bg-white/75 backdrop-blur-sm;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.18em];
+    color: var(--color-accent-strong);
+    font-family: var(--font-heading);
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border px-3 py-1 text-sm;
+    color: var(--color-muted);
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  .section-copy {
+    @apply max-w-2xl text-base leading-8 sm:text-lg;
+  }
+
+  .rich-content {
+    @apply prose prose-stone max-w-none;
+    --tw-prose-body: var(--color-muted);
+    --tw-prose-headings: var(--color-fg);
+    --tw-prose-links: var(--color-fg);
+    --tw-prose-bold: var(--color-fg);
+    --tw-prose-counters: var(--color-muted);
+    --tw-prose-bullets: var(--color-accent);
+    --tw-prose-hr: var(--color-border);
+    --tw-prose-quotes: var(--color-fg);
+    --tw-prose-quote-borders: var(--color-border);
+    --tw-prose-code: var(--color-fg);
+    --tw-prose-pre-bg: #1a1918;
+  }
+
+  .rich-content :where(h2, h3, h4) {
+    font-family: var(--font-heading);
+    letter-spacing: -0.04em;
+  }
+
+  .rich-content :where(a:hover) {
+    color: var(--color-accent-strong);
+  }
+}

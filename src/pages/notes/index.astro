@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import Container from "@/components/Container.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { compareByDate, formatDate, withBase } from "@/lib/utils";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(compareByDate);
+---
+
+<BaseLayout title="Notes" description="Technical notes and essays authored in MDX.">
+  <section class="py-16 sm:py-24">
+    <Container>
+      <SectionHeading
+        eyebrow="Notes"
+        title="Short writing on infrastructure, AI systems, and engineering judgment."
+        description="This section is implemented as a proper MDX collection so it can grow naturally into essays, architecture posts, or technical field notes."
+      />
+
+      <div class="grid gap-6">
+        {
+          posts.map((post) => (
+            <article class="surface-card p-6 sm:p-7">
+              <p class="text-sm font-medium text-[color:var(--color-muted)]">{formatDate(post.data.publishDate)}</p>
+              <h2 class="mt-4 text-2xl leading-tight font-semibold sm:text-3xl">
+                <a href={withBase(`/notes/${post.id}/`)} class="hover:text-[color:var(--color-accent-strong)]">
+                  {post.data.title}
+                </a>
+              </h2>
+              <p class="mt-4 max-w-3xl text-base leading-8">{post.data.description}</p>
+              <div class="mt-6">
+                <LinkButton href={`/notes/${post.id}/`} variant="ghost">Read note</LinkButton>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

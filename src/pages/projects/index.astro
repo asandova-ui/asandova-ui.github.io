@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import Container from "@/components/Container.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { compareByOrder } from "@/lib/utils";
+
+const projects = (await getCollection("projects")).sort(compareByOrder);
+const featuredProjects = projects.filter((entry) => entry.data.featured);
+const archiveProjects = projects.filter((entry) => !entry.data.featured);
+---
+
+<BaseLayout title="Projects" description="Selected projects spanning telecommunications, AI systems, and infrastructure-focused engineering.">
+  <section class="py-16 sm:py-24">
+    <Container>
+      <SectionHeading
+        eyebrow="Projects"
+        title="Case studies and portfolio entries authored in MDX."
+        description="The structure is designed so you can keep adding work without touching layout code. Featured projects appear first, followed by supporting case studies."
+      />
+
+      <div class="grid gap-6 lg:grid-cols-2">
+        {featuredProjects.map((entry) => <ProjectCard entry={entry} featured />)}
+      </div>
+
+      {archiveProjects.length > 0 && (
+        <div class="mt-12">
+          <h2 class="text-2xl font-semibold">Additional work</h2>
+          <div class="mt-6 grid gap-6 lg:grid-cols-2">
+            {archiveProjects.map((entry) => <ProjectCard entry={entry} />)}
+          </div>
+        </div>
+      )}
+
+      <div class="mt-10">
+        <LinkButton href="/#contact" variant="secondary">Start a conversation</LinkButton>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

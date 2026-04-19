@@ -1,0 +1,29 @@
+---
+import Container from "@/components/Container.astro";
+import { siteConfig } from "@/lib/site";
+import { withBase } from "@/lib/utils";
+---
+
+<header class="sticky top-0 z-50 border-b border-[color:var(--color-border)] bg-[color:var(--color-bg)]/90 backdrop-blur-md">
+  <Container class="flex items-center justify-between gap-6 py-4">
+    <a href={withBase("/")} class="font-heading text-sm font-semibold tracking-[0.22em] uppercase text-[color:var(--color-fg)]">
+      {siteConfig.name}
+    </a>
+    <nav aria-label="Primary" class="overflow-x-auto">
+      <ul class="flex items-center gap-2 text-sm sm:gap-3">
+        {
+          siteConfig.navigation.map((item) => (
+            <li>
+              <a
+                href={withBase(item.href)}
+                class="inline-flex rounded-full px-3 py-2 text-[color:var(--color-muted)] hover:text-[color:var(--color-accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent)]"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </Container>
+</header>

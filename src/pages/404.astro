@@ -1,0 +1,20 @@
+---
+import Container from "@/components/Container.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Page not found" description="The page you requested could not be found.">
+  <section class="py-24 sm:py-32">
+    <Container narrow class="space-y-6 text-center">
+      <span class="eyebrow">404</span>
+      <h1 class="text-4xl leading-tight font-semibold sm:text-5xl">This page does not exist.</h1>
+      <p class="section-copy mx-auto">
+        The route may have changed or the content may not be published yet.
+      </p>
+      <div class="flex justify-center">
+        <LinkButton href="/">Return home</LinkButton>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>
