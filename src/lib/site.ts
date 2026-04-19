@@ -63,26 +63,19 @@ export const siteConfig = {
     },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/[placeholder-link]/",
+      href: "https://www.linkedin.com/in/alonso-sandoval-martinez/",
       icon: "linkedin",
       external: true
     },
     {
-      label: "CV",
-      href: "/cv/",
-      icon: "file-text"
-    },
-    {
       label: "Email",
-      href: "mailto:[placeholder-email]@example.com",
+      href: "mailto:alonso.sandovalmartinez@gmail.com",
       icon: "mail"
     }
   ],
   navigation: [
     { label: "About", href: "/#about" },
     { label: "Projects", href: "/#projects" },
-    { label: "Experience", href: "/#experience" },
-    { label: "Notes", href: "/notes/" },
     { label: "Contact", href: "/#contact" }
   ]
 } as const;
@@ -128,29 +121,57 @@ export const experience: ExperienceItemData[] = [
 
 export const skillGroups: SkillGroupData[] = [
   {
-    title: "AI Systems",
-    description: "Applied AI product work across models, evaluation, retrieval, and operator-facing workflows.",
-    items: ["LLM workflows", "RAG systems", "AI copilots", "Evaluation", "Prompt systems", "Experimentation"]
+    title: "AI product systems",
+    description: "Designing LLM-enabled workflows with evaluation, reliability, and operator UX as first-class constraints.",
+    items: [
+      "LLM workflows",
+      "Retrieval + grounding (RAG)",
+      "Evaluation & guardrails",
+      "Human-in-the-loop design",
+      "Tooling for operators",
+      "Traceability & observability"
+    ]
   },
   {
-    title: "Data & ML Operations",
-    description: "Turning raw data into clean, compliant, ML-ready assets for AI teams.",
-    items: ["Data pipelines", "Schema design", "Anonymization", "Dataset QA", "Labeling ops", "Dataset packaging"]
+    title: "Dataset & data operations",
+    description: "Turning raw, messy inputs into ML-ready datasets with quality controls, compliance, and repeatable delivery.",
+    items: [
+      "Dataset QA & validation",
+      "Schema design",
+      "Labeling operations",
+      "Anonymization & privacy-aware workflows",
+      "Packaging & delivery pipelines",
+      "Data lifecycle tooling"
+    ]
   },
   {
-    title: "Backend & Platform",
-    description: "Service architecture and product infrastructure for AI products and operational systems.",
-    items: ["TypeScript", "Node.js", "APIs", "PostgreSQL", "Workflow design", "System design"]
+    title: "Backend & platform engineering",
+    description: "APIs and services built for reliability: clear boundaries, sane data models, and maintainable execution.",
+    items: [
+      "API design (REST)",
+      "Event-driven patterns",
+      "PostgreSQL",
+      "Python",
+      "TypeScript",
+      "System design"
+    ]
   },
   {
-    title: "Electrical & Systems",
-    description: "Analytical rigor from electrical and systems engineering applied to product and AI architecture.",
-    items: ["Systems modeling", "Signal analysis", "Automation", "Edge environments", "Technical analysis", "Operational rigor"]
+    title: "Payments, networking & systems rigor",
+    description: "Systems-level thinking across protocols, edge constraints, and correctness-driven engineering.",
+    items: [
+      "SEPA / payments flows (SRTP)",
+      "Networked systems",
+      "Real-time interfaces",
+      "Edge-aware constraints",
+      "Technical writing & documentation",
+      "Operational discipline"
+    ]
   }
 ];
 
 export const contactLinks = {
-  email: "mailto:[placeholder-email]@example.com",
+  email: "mailto:alonso.sandovalmartinez@gmail.com",
   github: "https://github.com/asandova-ui",
-  linkedin: "https://www.linkedin.com/in/[placeholder-link]/"
+  linkedin: "https://www.linkedin.com/in/alonso-sandoval-martinez/"
 } as const;

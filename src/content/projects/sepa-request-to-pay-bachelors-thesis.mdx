@@ -1,0 +1,78 @@
+---
+title: "SEPA Request-to-Pay prototype (Bachelor’s thesis)"
+subtitle: "SRTP vs SEPA Direct Debit — end-to-end flow simulation with real-time UI"
+description: "Bachelor’s final project (capstone) designing and implementing an event-driven SRTP prototype: payment-request creation, routing, payer decision, execution, and closure with live notifications."
+pitch: "Built to make SRTP tangible: a Flask API + WebSocket events + a live web UI that demonstrates the full Request-to-Pay lifecycle and the operational differences versus Direct Debit."
+featured: true
+year: "2025"
+cardStatusLabel: "Highest Honors"
+cardStatusTone: "live"
+detailStatusLabel: "Highest Honors (10/10)"
+detailStatusTone: "live"
+detailStatusNote: "Final mark equivalent to a top distinction: awarded the highest grade (10/10) with the Spanish ‘Matrícula de Honor’."
+role: "Author — system design, backend implementation, data model, and real-time web UI."
+outcome: "Delivered an SRTP prototype and a complete thesis explaining the scheme, its actors, and how it addresses recurring-payment friction in a digital economy."
+stack:
+  - Python
+  - Flask
+  - SQLAlchemy
+  - Socket.IO (WebSockets)
+  - SQLite
+  - HTML/CSS/JavaScript
+tags:
+  - Payments
+  - Event-driven systems
+  - Real-time UI
+  - SEPA
+links:
+  - label: "Repository"
+    href: "https://github.com/asandova-ui/SEPA_RequestToPay"
+  - label: "Thesis (PDF, Spanish)"
+    href: "/pdfs/MemoriaTFG.pdf"
+order: 0
+---
+
+## Context
+
+In Europe, **SEPA Direct Debit (SDD)** remains a common choice for recurring collections, but it is not always ideal for modern digital flows: transparency, payer control, and real-time interaction are limited.
+
+**SEPA Request-to-Pay (SRTP)** introduces a digital request layer: the beneficiary sends a payment request, and the payer can **accept, reject, or defer** it in real time—typically leveraging **SEPA Instant Credit Transfer (SCT Inst)** rails for execution.
+
+<figure class="not-prose my-8">
+  <div class="overflow-hidden rounded-2xl border bg-white/70 shadow-[var(--shadow-soft)]">
+    <img
+      src="/images/projects/srtp-scheme.png"
+      alt="SEPA Request-to-Pay (SRTP) scheme flow between payer, payee, and RTP service providers."
+      loading="lazy"
+      class="w-full"
+    />
+  </div>
+  <figcaption class="mt-3 text-sm text-[color:var(--color-muted)]">
+    High-level SRTP message flow between payer, payee, and their RTP service providers.
+  </figcaption>
+</figure>
+
+## What I built
+
+I designed and implemented a **functional prototype** that simulates the SRTP ecosystem and its core actors:
+
+- **Beneficiary** and **payer**
+- **Beneficiary PSP** and **payer PSP**
+- A full request lifecycle: **create → validate → route → validate payer → payer decision → close**
+
+The backend is structured as an **event-driven flow**: each state transition emits real-time notifications so every party sees updates immediately.
+
+## System overview
+
+- **Backend API (Flask)**: REST endpoints for each SRTP step plus persistence for actors, requests, and logs.
+- **Real-time layer (Socket.IO)**: room-based notifications per actor/role to model how PSPs and customers receive state changes.
+- **Web UI (static frontend)**: a live interface to log in as different actors and execute the SRTP flow end-to-end.
+
+## Why it matters
+
+This project is a hands-on way to understand the **operational differences** between Direct Debit and Request-to-Pay:
+
+- clearer payer intent and decision points
+- improved traceability across actors
+- better UX alignment with instant payment rails
+
