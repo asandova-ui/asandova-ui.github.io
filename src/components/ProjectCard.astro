@@ -10,6 +10,7 @@ interface Props {
 
 const { entry, featured = false } = Astro.props;
 const { data, id } = entry;
+const cardCopy = data.pitch ?? data.description;
 const statusToneClasses =
   data.cardStatusTone === "live"
     ? "border-emerald-200 bg-emerald-50/90 text-emerald-700"
@@ -58,22 +59,11 @@ const statusDotClasses =
             {data.subtitle}
           </p>
         )}
-        <p class="text-base leading-8">{data.description}</p>
+        <p class="text-base leading-8">{cardCopy}</p>
       </div>
     </div>
 
     <div class="space-y-4">
-      <div class="grid gap-4 sm:grid-cols-2">
-        <div class="rounded-2xl border bg-[color:var(--color-surface)] p-4">
-          <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[color:var(--color-muted)]">Role</p>
-          <p class="mt-2 text-sm leading-7">{data.role}</p>
-        </div>
-        <div class="rounded-2xl border bg-[color:var(--color-surface)] p-4">
-          <p class="text-xs font-semibold tracking-[0.18em] uppercase text-[color:var(--color-muted)]">Outcome</p>
-          <p class="mt-2 text-sm leading-7">{data.outcome}</p>
-        </div>
-      </div>
-
       <ul class="flex flex-wrap gap-2">
         {
           data.stack.map((item) => (

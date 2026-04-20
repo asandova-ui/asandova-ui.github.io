@@ -9,13 +9,13 @@ import { compareByDate, formatDate, withBase } from "@/lib/utils";
 const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(compareByDate);
 ---
 
-<BaseLayout title="Notes" description="Technical notes and essays authored in MDX.">
+<BaseLayout title="Blog" description="Writing on applied AI, data systems, and startup execution.">
   <section class="py-16 sm:py-24">
     <Container>
       <SectionHeading
-        eyebrow="Notes"
-        title="Short writing on infrastructure, AI systems, and engineering judgment."
-        description="This section is implemented as a proper MDX collection so it can grow naturally into essays, architecture posts, or technical field notes."
+        eyebrow="Blog"
+        title="Writing on applied AI, data systems, and startup execution."
+        description="A small collection of essays and field notes on infrastructure, product engineering, and where AI is actually creating leverage."
       />
 
       <div class="grid gap-6">
@@ -30,7 +30,7 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(com
               </h2>
               <p class="mt-4 max-w-3xl text-base leading-8">{post.data.description}</p>
               <div class="mt-6">
-                <LinkButton href={`/notes/${post.id}/`} variant="ghost">Read note</LinkButton>
+                <LinkButton href={`/notes/${post.id}/`} variant="ghost">Read post</LinkButton>
               </div>
             </article>
           ))

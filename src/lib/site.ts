@@ -25,14 +25,15 @@ export const siteConfig = {
   name: "Alonso Sandoval",
   shortName: "Alonso",
   role: "Electrical & AI Engineer",
+  profileImage: "/images/profile/alonso-profile.jpeg",
   location: "Madrid, Spain",
-  availability: "Open to strategic conversations around AI products, AI data platforms, and technical leadership.",
+  availability: "Open to thoughtful conversations around applied AI, technical products, and early-stage execution.",
   description:
-    "Portfolio of Alonso Sandoval, an electrical and AI engineer. Co-Founder and CTO at Caudals, building systems for data, AI, and connected products.",
+    "Portfolio of Alonso Sandoval, an electrical and AI engineer focused on applied AI, data-intensive products, connected systems, and startup execution.",
   headline:
-    "Reliable systems for AI, data, and connected products.",
+    "I’m a Spanish electrical and AI engineer with a strong interest in startups, especially where software, data, and real systems have to work together.",
   intro:
-    "I work across product architecture, backend systems, and data operations, with a focus on turning complex workflows into dependable products.",
+    "My work sits between applied AI, backend systems, and connected infrastructure. I like building things from first principles, turning complex workflows into clear products, and working in early-stage environments where technical depth and execution speed both matter.",
   about:
     "I build technical products for data-heavy and model-driven workflows, where architecture, data quality, and operational reliability all matter. My work spans backend systems, dataset operations, connected infrastructure, and the tooling required to ship them well.",
   venture: {
@@ -74,9 +75,8 @@ export const siteConfig = {
     }
   ],
   navigation: [
-    { label: "About", href: "/#about" },
     { label: "Projects", href: "/#projects" },
-    { label: "Contact", href: "/#contact" }
+    { label: "Blog", href: "/#blog" }
   ]
 } as const;
 

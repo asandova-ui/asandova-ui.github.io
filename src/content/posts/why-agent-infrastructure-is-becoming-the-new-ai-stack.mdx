@@ -1,0 +1,71 @@
+---
+title: "Why Agent Infrastructure Is Becoming the New AI Stack"
+description: "The most important shift in AI right now is not just better models. It is the emergence of protocols, tools, and evaluation layers that make agent systems operable."
+publishDate: 2026-03-15
+draft: false
+---
+
+Over the last year, the center of gravity in AI has started to move. The conversation is still dominated by model releases, but the deeper change is happening one layer below: the infrastructure around agents.
+
+What matters now is not only raw model quality. It is whether an AI system can connect to the right tools, carry useful context across tasks, operate safely inside real software environments, and be evaluated with enough rigor to trust it in production.
+
+That is why the current wave feels different. The stack is becoming more operational.
+
+## The model is no longer the whole product
+
+For a while, most AI products were effectively thin wrappers around a model. The core challenge was prompting well enough to produce something useful.
+
+That is no longer sufficient for serious systems work.
+
+Once a model has to retrieve context, call tools, browse software, coordinate with other agents, or hand work back to a human, the problem changes. The model is still important, but reliability starts to depend more on orchestration, interfaces, permissions, and evaluation.
+
+In practice, this is what separates a demo from a system.
+
+## Why this is happening now
+
+Three concrete shifts pushed this change into the open.
+
+First, model vendors began shipping serious agent tooling. On **March 11, 2025**, OpenAI released the [Responses API and Agents SDK](https://openai.com/index/new-tools-for-building-agents//), making tool use, orchestration, and tracing much more central to application design.
+
+Second, interoperability started to matter. Anthropic’s [Model Context Protocol](https://docs.anthropic.com/en/docs/mcp) gave developers a common way to connect models to tools and external data sources. Then on **April 9, 2025**, Google announced [Agent2Agent (A2A)](https://developers.googleblog.com/es/a2a-a-new-era-of-agent-interoperability/), explicitly framing multi-agent coordination as an infrastructure problem rather than a one-off framework feature.
+
+Third, evaluation moved closer to the application layer. Once systems began calling tools and taking multi-step actions, traditional prompt testing was no longer enough. The industry started needing traces, task-level evaluation, failure analysis, and safety checks that reflect real execution paths.
+
+That combination changes the build discipline. You stop asking only whether a model is smart enough, and start asking whether the system is observable enough, bounded enough, and testable enough.
+
+## Protocols are becoming strategic
+
+The interesting thing about MCP and A2A is not just standardization for its own sake.
+
+They matter because they reduce the amount of brittle, custom glue every team has to build just to make agents useful. If a model can connect to tools through a consistent interface, and if agents can coordinate through shared conventions, the stack becomes easier to compose and easier to reason about.
+
+That matters a lot in startups and small engineering teams. The constraint is rarely imagination. It is operational bandwidth.
+
+A protocol layer does not solve product quality by itself, but it changes where leverage lives. It lets teams spend more time on task design, decision logic, supervision, and evaluation instead of rebuilding the same connector logic every time.
+
+## The new bottleneck is operational trust
+
+This is the part that matters most.
+
+As agents move closer to real workflows, the main question is not whether they can act. It is whether they can act in a way that remains legible under pressure. Can you inspect the reasoning path? Can you replay the task? Can you see which tool calls were made, with what context, and where the system became uncertain?
+
+That is why evaluation is becoming foundational. Good AI systems now need:
+
+- clear routing rules,
+- bounded permissions,
+- structured traces,
+- confidence-aware escalation,
+- human review for ambiguous cases,
+- and task-level metrics that reflect real work instead of generic benchmark scores.
+
+In other words, the problem is moving from model access to operational trust.
+
+## What this means for builders
+
+For people building in AI right now, the opportunity is not just to ship a chatbot with more tools attached. It is to build the operational layer that makes model capability usable in practice.
+
+That means better context engineering. Better interfaces between models and software. Better evaluation loops. Better human-in-the-loop decisions. Better system design around where autonomy should stop and supervision should begin.
+
+My view is that this is where a lot of durable value will be created over the next cycle. Not only in better models, but in the infrastructure that makes those models composable, governable, and genuinely useful inside real products.
+
+The teams that win here will probably not be the ones with the loudest AI messaging. They will be the ones that treat agents as systems engineering problems.

@@ -5,69 +5,23 @@ import Hero from "@/components/Hero.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
-import SkillGroup from "@/components/SkillGroup.astro";
-import SocialLinks from "@/components/SocialLinks.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { contactLinks, siteConfig, skillGroups } from "@/lib/site";
-import { compareByOrder } from "@/lib/utils";
+import { compareByDate, compareByOrder, formatDate, withBase } from "@/lib/utils";
 
 const allProjects = (await getCollection("projects")).sort(compareByOrder);
 const featuredProjects = allProjects.filter((entry) => entry.data.featured);
 const standardProjects = allProjects.filter((entry) => !entry.data.featured);
+const latestPosts = (await getCollection("posts", ({ data }) => !data.draft)).sort(compareByDate).slice(0, 2);
 ---
 
 <BaseLayout>
   <Hero />
 
-  <section id="about" class="py-10 sm:py-14">
-    <Container class="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
-      <div class="space-y-4">
-        <span class="eyebrow">About</span>
-        <h2 class="text-3xl leading-tight font-semibold sm:text-4xl">
-          Product, data, and infrastructure work built with systems discipline.
-        </h2>
-        <p class="section-copy">{siteConfig.about}</p>
-      </div>
-
-      <article class="surface-card p-6 sm:p-7">
-        <div class="grid gap-8 md:grid-cols-2">
-          <div>
-            <h3 class="text-xl font-semibold">What I build</h3>
-            <ul class="mt-5 space-y-3">
-              {
-                siteConfig.currentFocus.map((item) => (
-                  <li class="flex gap-3 text-sm leading-7 sm:text-base">
-                    <span aria-hidden="true" class="mt-3 size-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]"></span>
-                    <span>{item}</span>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="text-xl font-semibold">How I work</h3>
-            <ul class="mt-5 space-y-3">
-              {
-                siteConfig.strengths.map((item) => (
-                  <li class="flex gap-3 text-sm leading-7 sm:text-base">
-                    <span aria-hidden="true" class="mt-3 size-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]"></span>
-                    <span>{item}</span>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-        </div>
-      </article>
-    </Container>
-  </section>
-
-  <section id="projects" class="py-14 sm:py-20">
+  <section id="projects" class="py-12 sm:py-18">
     <Container>
       <SectionHeading
         eyebrow="Projects"
-        title="Selected AI products, AI data platforms, and infrastructure-heavy delivery."
+        title="Selected work across applied AI, data operations, and connected systems."
       />
 
       <div class="grid gap-6 lg:grid-cols-2">
@@ -86,45 +40,38 @@ const standardProjects = allProjects.filter((entry) => !entry.data.featured);
     </Container>
   </section>
 
-  {/* Experience section intentionally hidden for now. */}
+  {latestPosts.length > 0 && (
+    <section id="blog" class="py-12 sm:py-18">
+      <Container>
+        <SectionHeading
+          eyebrow="Blog"
+          title="Writing on applied AI, data systems, and startup execution."
+          description="A small editorial layer for ideas worth expanding beyond a project card."
+        />
 
-  <section id="skills" class="py-14 sm:py-20">
-    <Container>
-      <SectionHeading
-        eyebrow="Skills"
-        title="Grouped capabilities that read like a serious AI profile, not a keyword wall."
-      />
-
-      <div class="grid gap-6 md:grid-cols-2">
-        {skillGroups.map((group) => <SkillGroup group={group} />)}
-      </div>
-    </Container>
-  </section>
-
-  {/* Writing section intentionally hidden for now. */}
-
-  <section id="contact" class="py-14 sm:py-20">
-    <Container>
-      <div class="surface-card overflow-hidden p-8 sm:p-10 lg:p-12">
-        <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-          <div class="space-y-5">
-            <span class="eyebrow">Contact</span>
-            <h2 class="max-w-3xl text-3xl leading-tight font-semibold sm:text-4xl">
-              If the work demands serious AI engineering, systems thinking, and clean execution, let&apos;s talk.
-            </h2>
-            <p class="section-copy">
-            </p>
-            <SocialLinks links={siteConfig.socialLinks} />
-          </div>
-
-          <div class="flex flex-col gap-3">
-            <LinkButton href={contactLinks.email}>Email Alonso</LinkButton>
-            <LinkButton href={contactLinks.linkedin} variant="secondary" external>
-              LinkedIn
-            </LinkButton>
-          </div>
+        <div class="grid gap-6 lg:grid-cols-2">
+          {
+            latestPosts.map((post) => (
+              <article class="surface-card p-6 sm:p-7">
+                <p class="text-sm font-medium text-[color:var(--color-muted)]">{formatDate(post.data.publishDate)}</p>
+                <h2 class="mt-4 max-w-3xl text-2xl leading-tight font-semibold sm:text-3xl">
+                  <a href={withBase(`/notes/${post.id}/`)} class="hover:text-[color:var(--color-accent-strong)]">
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="mt-4 max-w-3xl text-base leading-8">{post.data.description}</p>
+                <div class="mt-6">
+                  <LinkButton href={`/notes/${post.id}/`} variant="secondary">Read post</LinkButton>
+                </div>
+              </article>
+            ))
+          }
         </div>
-      </div>
-    </Container>
-  </section>
+
+        <div class="mt-10">
+          <LinkButton href="/notes/" variant="ghost">Visit blog</LinkButton>
+        </div>
+      </Container>
+    </section>
+  )}
 </BaseLayout>

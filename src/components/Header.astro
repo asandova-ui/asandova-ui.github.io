@@ -6,8 +6,15 @@ import { withBase } from "@/lib/utils";
 
 <header class="sticky top-0 z-50 border-b border-[color:var(--color-border)] bg-[color:var(--color-bg)]/90 backdrop-blur-md">
   <Container class="flex items-center justify-between gap-6 py-4">
-    <a href={withBase("/")} class="font-heading text-sm font-semibold tracking-[0.22em] uppercase text-[color:var(--color-fg)]">
-      {siteConfig.name}
+    <a href={withBase("/")} class="flex items-center gap-4 text-[color:var(--color-fg)]">
+      <img
+        src={withBase(siteConfig.profileImage)}
+        alt={`Portrait of ${siteConfig.name}`}
+        class="size-16 rounded-full border border-[color:var(--color-border)] object-cover object-[center_72%] shadow-[0_10px_24px_rgba(20,20,19,0.10)] sm:size-[4.5rem]"
+        loading="eager"
+        decoding="async"
+      />
+      <span class="font-heading text-base font-semibold tracking-[0.2em] uppercase sm:text-[1.05rem]">{siteConfig.name}</span>
     </a>
     <nav aria-label="Primary" class="overflow-x-auto">
       <ul class="flex items-center gap-2 text-sm sm:gap-3">
