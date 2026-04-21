@@ -1,0 +1,85 @@
+---
+title: "TP1 Modular FPGA, Sensor & LoRa Telemetry Platform"
+subtitle: "Four-board embedded system combining custom hardware, LarVA-based RISC-V logic, sensing, GPS, and LoRa telemetry"
+description: "Integrated embedded engineering project spanning custom PCB design, FPGA / SoC integration, firmware drivers, sensor acquisition, GPS parsing, and wireless telemetry over LoRa."
+pitch: "A serious hardware-software integration build: four dedicated boards for power, compute, sensing, and wireless communication, tied together by a LarVA-based RISC-V subsystem, low-level firmware, and real telemetry workflows."
+featured: false
+year: "2025"
+cardStatusLabel: "Completed"
+cardStatusTone: "neutral"
+detailStatusLabel: "Completed build"
+detailStatusTone: "neutral"
+detailStatusNote: "Delivered as a finished academic engineering project with hardware design files, firmware, programmable-logic integration, and validation material."
+role: "Contributor — embedded architecture, hardware-software integration, firmware understanding, and system-level documentation."
+outcome: "Produced a modular sensing and telemetry platform with fabrication-ready hardware outputs, FPGA integration, driver-level firmware, and supporting validation artifacts."
+stack:
+  - Verilog
+  - Embedded C
+  - FPGA / RISC-V
+  - SPI / UART
+  - LoRa
+  - PCB design
+tags:
+  - embedded systems
+  - FPGA
+  - LoRa
+  - sensors
+  - hardware-software integration
+links:
+  - label: "Repository"
+    href: "https://github.com/asandova-ui/TP1"
+order: 4
+---
+
+## Context
+
+This project sits much closer to **integrated systems engineering** than to a standalone software repository. It combines **electronics design, programmable logic, firmware, sensing, and wireless communication** inside a single modular platform.
+
+The architecture is split across **four dedicated PCBs**:
+
+- a **power / USB board**
+- an **FPGA board**
+- a **sensor board**
+- a **wireless board**
+
+That separation makes the project feel like a real engineering platform rather than a monolithic prototype.
+
+## What the system includes
+
+At the digital core, the platform uses a **LarVA-based RISC-V subsystem** connected to:
+
+- multiple UART interfaces for debug, GPS, and extension
+- `SPI0` for environmental sensing and ADC communication
+- `SPI1` for the LoRa radio path
+- GPIO lines for radio control, diagnostics, and sensor power management
+
+On the firmware side, the repository includes drivers and support code for:
+
+- environmental sensing with **BME680**
+- analog acquisition through **MCP3004**
+- GPS sentence parsing over UART
+- LoRa communication with an **SX1262** transceiver
+- power-control logic for auxiliary sensing paths
+
+## Why it is portfolio-worthy
+
+What makes this work valuable is the **breadth of integration**:
+
+- custom hardware and manufacturable PCB outputs
+- HDL and SoC-level wiring
+- low-level firmware and peripheral handling
+- telemetry and wireless validation
+- documented analysis around BOM, power, and supporting system artifacts
+
+It is a strong example of the kind of project where **electrical engineering, embedded software, digital design, and communications infrastructure** all need to line up for the system to make sense.
+
+## Engineering scope
+
+The repository includes:
+
+- **schematics, footprints, and Gerbers**
+- **firmware sources** for sensing, SPI, GPS, and LoRa
+- **Verilog sources** for the top-level system and peripheral integration
+- **validation and documentation** for the broader system work
+
+This is best read as a **validated academic engineering build** and a strong foundation in embedded, communications-aware, and infrastructure-oriented product work.

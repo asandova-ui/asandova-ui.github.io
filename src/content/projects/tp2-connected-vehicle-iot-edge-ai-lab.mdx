@@ -50,6 +50,20 @@ What makes the project strong is not just the individual components, but the int
 
 ## System layout
 
+<figure class="not-prose my-8">
+  <div class="overflow-hidden rounded-2xl border bg-white/70 shadow-[var(--shadow-soft)]">
+    <img
+      src="/images/projects/tp2-architecture.png"
+      alt="TP2 connected vehicle architecture showing the operator laptop, EPC, eNodeB, car, and Jetson roles, plus LTE, UDP, SSH, and planned inference-offload flows."
+      loading="lazy"
+      class="w-full"
+    />
+  </div>
+  <figcaption class="mt-3 text-sm text-[color:var(--color-muted)]">
+    Current TP2 machine roles and data flow: EPC-centered control, LTE transport through the eNodeB, and Jetson positioned as planned inference offload.
+  </figcaption>
+</figure>
+
 ```text
 Car (UE) -> LTE attach -> eNodeB -> EPC
    |                          |
