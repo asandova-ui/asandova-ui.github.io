@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import Container from "@/components/Container.astro";
-import LinkButton from "@/components/LinkButton.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { compareByDate, formatDate, withBase } from "@/lib/utils";
@@ -10,7 +9,7 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(com
 ---
 
 <BaseLayout title="Blog" description="Writing on applied AI, data systems, and startup execution.">
-  <section class="py-16 sm:py-24">
+  <section class="py-14 sm:py-20">
     <Container>
       <SectionHeading
         eyebrow="Blog"
@@ -18,19 +17,25 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(com
         description="A small collection of essays and field notes on infrastructure, product engineering, and where AI is actually creating leverage."
       />
 
-      <div class="grid gap-6">
+      <div class="grid gap-0">
         {
-          posts.map((post) => (
-            <article class="surface-card p-6 sm:p-7">
-              <p class="text-sm font-medium text-[color:var(--color-muted)]">{formatDate(post.data.publishDate)}</p>
-              <h2 class="mt-4 text-2xl leading-tight font-semibold sm:text-3xl">
-                <a href={withBase(`/notes/${post.id}/`)} class="hover:text-[color:var(--color-accent-strong)]">
-                  {post.data.title}
+          posts.map((post, index) => (
+            <article class="grid gap-3 border-b editorial-rule py-6 transition-colors hover:bg-[rgba(255,252,245,0.28)] sm:grid-cols-[2.8rem_minmax(0,1fr)] sm:py-7 lg:grid-cols-[2.8rem_minmax(0,1fr)_auto] lg:gap-8">
+              <span class="font-heading text-[0.78rem] text-[color:var(--color-soft)] sm:pt-1">{String(index + 1).padStart(2, "0")}</span>
+              <div class="max-w-3xl">
+                <h2 class="text-[1.22rem] leading-tight font-semibold sm:text-[1.42rem]">
+                  <a href={withBase(`/notes/${post.id}/`)} class="hover:text-[color:var(--color-accent-strong)]">
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="mt-2.5 max-w-2xl text-[0.95rem] leading-7 text-[color:var(--color-muted)]">{post.data.description}</p>
+              </div>
+              <p class="text-[0.82rem] text-[color:var(--color-muted)] sm:col-start-2 lg:col-start-auto lg:text-right">{formatDate(post.data.publishDate)}</p>
+              <div class="text-[0.9rem] font-medium sm:col-start-2 lg:col-span-2">
+                <a href={withBase(`/notes/${post.id}/`)} class="inline-flex items-center gap-2 hover:text-[color:var(--color-accent-strong)]">
+                  Read post
+                  <span aria-hidden="true">→</span>
                 </a>
-              </h2>
-              <p class="mt-4 max-w-3xl text-base leading-8">{post.data.description}</p>
-              <div class="mt-6">
-                <LinkButton href={`/notes/${post.id}/`} variant="ghost">Read post</LinkButton>
               </div>
             </article>
           ))

@@ -17,58 +17,60 @@ const latestPosts = (await getCollection("posts", ({ data }) => !data.draft)).so
 <BaseLayout>
   <Hero />
 
-  <section id="projects" class="py-12 sm:py-18">
+  <section id="projects" class="pt-2 pb-14 sm:pt-4 sm:pb-16">
     <Container>
-      <SectionHeading
-        eyebrow="Projects"
-        title="Selected work across applied AI, data operations, and connected systems."
-      />
+      <SectionHeading eyebrow="Projects" />
 
-      <div class="grid gap-6 lg:grid-cols-2">
-        {featuredProjects.map((entry) => <ProjectCard entry={entry} featured />)}
+      <div class="grid gap-0">
+        {featuredProjects.map((entry, index) => <ProjectCard entry={entry} featured index={index} />)}
       </div>
 
       {standardProjects.length > 0 && (
-        <div class="mt-6 grid gap-6 lg:grid-cols-2">
-          {standardProjects.map((entry) => <ProjectCard entry={entry} />)}
+        <div class="grid gap-0">
+          {standardProjects.map((entry, index) => <ProjectCard entry={entry} index={featuredProjects.length + index} />)}
         </div>
       )}
 
-      <div class="mt-10">
+      <div class="mt-7">
         <LinkButton href="/projects/" variant="secondary">Browse all projects</LinkButton>
       </div>
     </Container>
   </section>
 
   {latestPosts.length > 0 && (
-    <section id="blog" class="py-12 sm:py-18">
+    <section id="blog" class="py-12 sm:py-16">
       <Container>
-        <SectionHeading
-          eyebrow="Blog"
-          title="Writing on applied AI, data systems, and startup execution."
-          description="A small editorial layer for ideas worth expanding beyond a project card."
-        />
+        <SectionHeading eyebrow="Blog" />
 
-        <div class="grid gap-6 lg:grid-cols-2">
+        <div class="grid gap-0">
           {
-            latestPosts.map((post) => (
-              <article class="surface-card p-6 sm:p-7">
-                <p class="text-sm font-medium text-[color:var(--color-muted)]">{formatDate(post.data.publishDate)}</p>
-                <h2 class="mt-4 max-w-3xl text-2xl leading-tight font-semibold sm:text-3xl">
-                  <a href={withBase(`/notes/${post.id}/`)} class="hover:text-[color:var(--color-accent-strong)]">
-                    {post.data.title}
+            latestPosts.map((post, index) => (
+              <article class="grid gap-3 border-b editorial-rule py-6 transition-colors hover:bg-[rgba(255,252,245,0.28)] sm:grid-cols-[2.8rem_minmax(0,1fr)] sm:py-7 lg:grid-cols-[2.8rem_minmax(0,1fr)_auto] lg:gap-8">
+                <span class="font-heading text-[0.78rem] text-[color:var(--color-soft)] sm:pt-1">{String(index + 1).padStart(2, "0")}</span>
+                <div class="max-w-3xl">
+                  <h2 class="text-[1.22rem] leading-tight font-semibold sm:text-[1.42rem]">
+                    <a href={withBase(`/notes/${post.id}/`)} class="hover:text-[color:var(--color-accent-strong)]">
+                      {post.data.title}
+                    </a>
+                  </h2>
+                  <p class="mt-2.5 max-w-2xl text-[0.95rem] leading-7 text-[color:var(--color-muted)]">{post.data.description}</p>
+                </div>
+                <p class="text-[0.82rem] text-[color:var(--color-muted)] sm:col-start-2 lg:col-start-auto lg:text-right">{formatDate(post.data.publishDate)}</p>
+                <div class="text-[0.9rem] font-medium sm:col-start-2 lg:col-span-2">
+                  <a
+                    href={withBase(`/notes/${post.id}/`)}
+                    class="inline-flex items-center gap-2 hover:text-[color:var(--color-accent-strong)]"
+                  >
+                    Read post
+                    <span aria-hidden="true">→</span>
                   </a>
-                </h2>
-                <p class="mt-4 max-w-3xl text-base leading-8">{post.data.description}</p>
-                <div class="mt-6">
-                  <LinkButton href={`/notes/${post.id}/`} variant="secondary">Read post</LinkButton>
                 </div>
               </article>
             ))
           }
         </div>
 
-        <div class="mt-10">
+        <div class="mt-7">
           <LinkButton href="/notes/" variant="ghost">Visit blog</LinkButton>
         </div>
       </Container>

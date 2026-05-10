@@ -6,10 +6,10 @@ import { siteConfig } from "@/lib/site";
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[color:var(--color-border)] pt-10 pb-14">
+<footer class="pt-10 pb-14">
   <Container class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
     <div class="space-y-3">
-      <p class="font-heading text-sm font-semibold tracking-[0.18em] uppercase text-[color:var(--color-fg)]">
+      <p class="font-heading text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--color-fg)]">
         {siteConfig.name}
       </p>
       <p class="text-sm">© {year} {siteConfig.name}. All rights reserved.</p>

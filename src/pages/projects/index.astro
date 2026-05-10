@@ -13,7 +13,7 @@ const archiveProjects = projects.filter((entry) => !entry.data.featured);
 ---
 
 <BaseLayout title="Projects" description="Selected projects spanning AI products, AI data platforms, and infrastructure-focused engineering.">
-  <section class="py-16 sm:py-24">
+  <section class="py-14 sm:py-20">
     <Container>
       <SectionHeading
         eyebrow="Projects"
@@ -21,21 +21,21 @@ const archiveProjects = projects.filter((entry) => !entry.data.featured);
         description="The structure is designed so you can keep adding work without touching layout code. Featured AI projects appear first, followed by supporting case studies."
       />
 
-      <div class="grid gap-6 lg:grid-cols-2">
-        {featuredProjects.map((entry) => <ProjectCard entry={entry} featured />)}
+      <div class="grid gap-0">
+        {featuredProjects.map((entry, index) => <ProjectCard entry={entry} featured index={index} />)}
       </div>
 
       {archiveProjects.length > 0 && (
-        <div class="mt-12">
-          <h2 class="text-2xl font-semibold">Additional work</h2>
-          <div class="mt-6 grid gap-6 lg:grid-cols-2">
-            {archiveProjects.map((entry) => <ProjectCard entry={entry} />)}
+        <div class="mt-12 sm:mt-14">
+          <h2 class="font-heading text-[1.25rem] font-semibold sm:text-[1.42rem]">Additional work</h2>
+          <div class="mt-5 grid gap-0">
+            {archiveProjects.map((entry, index) => <ProjectCard entry={entry} index={featuredProjects.length + index} />)}
           </div>
         </div>
       )}
 
       <div class="mt-10">
-        <LinkButton href="/#contact" variant="secondary">Start a conversation</LinkButton>
+        <LinkButton href="/" variant="secondary">Back to home</LinkButton>
       </div>
     </Container>
   </section>
