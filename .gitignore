@@ -56,3 +56,7 @@ dist/
 # Temporary folders
 tmp/
 temp/
+
+# Local clone of the GitHub profile repository. It is maintained separately and
+# must not be tracked as a submodule inside this GitHub Pages site.
+PerfilGitHub/
