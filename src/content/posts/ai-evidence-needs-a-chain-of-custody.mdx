@@ -1,0 +1,70 @@
+---
+title: "AI Evidence Needs a Chain of Custody"
+description: "A cybersecurity lawsuit shows why AI-generated analytical outputs need provenance, versioning, and review before they become operational evidence."
+publishDate: 2026-06-29
+draft: false
+---
+
+The next AI reliability problem may not be whether a model gives a bad answer. It may be whether that answer gets laundered into evidence.
+
+On **June 29, 2026**, Axios reported on a lawsuit by MeetingTV against Koi Security and Palo Alto Networks over a December 2025 threat-intelligence report that linked MeetingTV-related infrastructure to a Chinese hacking operation ([Axios](https://www.axios.com/2026/06/29/palo-alto-networks-meeting-tv-ai-cyber-lawsuit)). MeetingTV alleges that the disputed finding may have come from AI-generated analysis. Axios is careful about the key caveat: the court filings do not directly prove that AI generated the allegedly erroneous findings.
+
+The real signal is that AI-generated analysis is moving into domains where a wrong intermediate conclusion can travel farther than the original report. In cybersecurity, a domain can be added to a threat report, copied into vendor systems, downgraded or blocked by scanners, and then become difficult to unwind even after the original publisher updates its language.
+
+That is not just an accuracy problem. It is a chain-of-custody problem.
+
+## The Output Is Not the Evidence
+
+Koi's original DarkSpectre report, published on **December 30, 2025**, described a large browser-extension threat operation and included MeetingTV-related material in the broader infrastructure discussion. On **February 12, 2026**, Koi updated the report to say that one MeetingTV domain appeared in code analyzed during its investigation, but that there was no evidence connecting the domain to the malicious infrastructure or threat actor described in the report ([Koi](https://www.koi.ai/blog/darkspectre-unmasking-the-threat-actor-behind-7-8-million-infected-browsers)).
+
+That update is exactly the kind of correction responsible security research sometimes needs. Threat intelligence is probabilistic and time-sensitive. Researchers work from fragments: domains, extension IDs, code artifacts, infrastructure reuse, behavioral patterns, reputation feeds, and historical pivots.
+
+AI changes the audit surface.
+
+If an analyst writes a report from observable artifacts, a later reviewer can ask for the artifacts, notes, queries, timestamps, and reasoning. If an AI system produces or shapes the analytical conclusion, the relevant record may also include model version, prompts, tool outputs, source snapshots, retrieval results, threshold settings, reputation feeds, and human edits applied before publication.
+
+The evidence is not only the final paragraph. It is the pipeline that produced the paragraph.
+
+## Dynamic Systems Make Static Corrections Weak
+
+MeetingTV's motion for limited expedited discovery, filed on **June 8, 2026**, argues that the records at issue may be dynamic AI-generated technical records and asks for preservation of versions, logs, metadata, AI outputs, audit trails, and related electronic records ([CourtListener PDF](https://storage.courtlistener.com/recap/gov.uscourts.casd.848022/gov.uscourts.casd.848022.31.0.pdf)). The filing also argues that if AI-generated reports are recreated later, they may differ because the model, data, configuration, or supporting systems changed.
+
+That is the product lesson. AI systems do not merely store conclusions; they can regenerate conclusions.
+
+For ordinary software, a bug report can often be reproduced against a known version. For AI-assisted analysis, reproduction may fail because the system is a moving target. The model was updated. The retrieval index changed. A vendor feed removed a domain. A classifier threshold shifted.
+
+In cybersecurity, finance, healthcare, legal review, hiring, compliance, or content moderation, the user harmed by an automated or AI-assisted conclusion does not only need a correction. They need a way to understand what happened.
+
+## Why It Matters for Builders
+
+The practical takeaway is not "never use AI for security analysis." AI can help analysts inspect code, cluster indicators, summarize large evidence sets, and find connections humans might miss.
+
+The takeaway is that any AI system producing operational evidence needs an evidence discipline around it.
+
+If your product scores risk, flags abuse, blocks domains, ranks applicants, summarizes medical records, reviews contracts, or recommends enforcement, you are not only building an inference feature. You are building a record-keeping system.
+
+That system should answer basic questions:
+
+- What exact inputs did the model see?
+- Which model, prompt, tools, and policies were active?
+- Which claims came from source data, which came from model inference, and which came from human judgment?
+- Who approved the output before it affected another party?
+- Can the original decision be replayed, challenged, and corrected without relying on today's version of the system?
+
+Founders often treat this as enterprise overhead. It is not. It is product quality in any market where AI outputs produce consequences.
+
+## The Review Layer Becomes the Product
+
+The most interesting opportunity is not another hallucination detector. It is a workflow layer for contested AI conclusions.
+
+Good AI evidence systems will need provenance by default, not as an export option. They will need immutable snapshots for high-impact decisions. They will need confidence language that distinguishes observation from inference. They will need correction paths that propagate downstream.
+
+This is especially important in security because the industry runs on shared signals. A bad indicator can move quickly. A correction can move slowly. AI makes that burden sharper because the claim may have been created by a system whose original state no longer exists.
+
+## What to Watch Next
+
+The MeetingTV case may turn on facts that are still disputed. It may show AI misuse, ordinary analytical error, protected security speech, or some combination of all three. Builders do not need to wait for a final ruling to learn from it.
+
+If an AI output can damage a counterparty, deny access, trigger a block, shape a compliance finding, or become part of a public accusation, it deserves a chain of custody. The product should preserve how the conclusion was made before anyone has to ask.
+
+The future of trustworthy AI will not be built only with better models. It will be built with systems that can show their work when the answer matters.
